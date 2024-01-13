@@ -9,4 +9,5 @@ GitHub is awesome and a fun time. Had a hard time figuring out VS Code and git, 
 -**clones** allow you to edit your repository remotely
 -**forks** are for experimenting with other people's code and creating varients of it
 -**pull**, **add**, **commit**, **push**
+-use branches: keeps code safe and allows you to retrace steps
 
