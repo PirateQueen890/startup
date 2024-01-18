@@ -10,7 +10,7 @@ Writer's block keeping you from finishing your novel? Check out this prompt gene
 ![Saved](savedpage.png)
 
 ## Key Features
-* Save favorite prompts through logging in 
+* Save up to six favorite prompts through logging in 
 * Generate unique prompts
 * Filter by one or more genres
 * Generate unique word combinations
