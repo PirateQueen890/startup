@@ -21,7 +21,7 @@ Writer's block keeping you from finishing your novel? Check out this prompt gene
 The following technologies will be used in the app:
 * **Authentication --** to save prompts, users must login
 * **Database data --** usernames and saved prompts are stored in the database
-* **Websocket data --** generation of prompts, sending prompt back
+* **Websocket data --** share prompts with other users
 * **HTML --** architecture/UX for the application
 * **CSS --** impliment design/UI of application
 * **Service --** backend service with endpoints for login, prompt generation, saving prompts, and retrieving prompts
