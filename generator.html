@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <h1>Writing Prompts</h1>
+    <h1>Generator</h1>
 </head>
 
 <body>
@@ -16,6 +16,49 @@
           </menu>
         </nav>
     </header>
+
+    <section id="options">
+        <h2>Options</h2>
+        <fieldset>
+            <legend>Type</legend>
+            <label for="optionWord">Word</label>
+            <input type="radio" id="optionWord" name="varRadio" value="optionWord" checked />
+            <label for="optionFusion">Fusion</label>
+            <input type="radio" id="optionFusion" name="varRadio" value="optionFusion" />
+            <label for="optionCharacter">Character</label>
+            <input type="radio" id="optionCharacter" name="varRadio" value="optionCharacter" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Genre</legend>
+            <label for="optionFantasy">Fantasy</label>
+            <input type="checkbox" id="optionFantasy" name="varCheckbox" value="optionFantasy" checked />
+            <label for="optionRomance">Romance</label>
+            <input type="checkbox" id="optionRomance" name="varCheckbox" value="optionRomance" />
+            <label for="optionDystopian">Dystopian</label>
+            <input type="checkbox" id="optionDystopian" name="varCheckbox" value="optionDystopian" />
+            <label for="optionMystery">Mystery</label>
+            <input type="checkbox" id="optionMystery" name="varCheckbox" value="optionMystery" />
+            <label for="optionHistorical">Historical</label>
+            <input type="checkbox" id="optionHistorical" name="varCheckbox" value="optionHistorical" />
+            <label for="optionRealistic">Realistic</label>
+            <input type="checkbox" id="optionRealistic" name="varCheckbox" value="optionRealistic" />
+            <label for="optionScifi">Sci-Fi</label>
+            <input type="checkbox" id="optionScifi" name="varCheckbox" value="optionScifi" />
+            <label for="optionSupernatural">Supernatural</label>
+            <input type="checkbox" id="optionSupernatural" name="varCheckbox" value="optionSupernatural" />
+          </fieldset>
+
+          <button type="button" id="buttonGenerate">Generate</button>
+    </section>
+
+    <section id="prompt">
+        <hr/>
+        <h2>Prompt</h2>
+        <p id="outputField">Prompt with be outputted here.</p>
+        <button type="button" id="buttonSave">Save</button>
+        <button type="button" id="buttonShare">Share</button>
+    </section>
 </body>
 
 <footer>
