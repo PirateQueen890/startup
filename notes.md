@@ -44,3 +44,10 @@ GitHub is awesome and a fun time. Had a hard time figuring out VS Code and git, 
 ## Server - Amazon Web Services
 - Elastic IP: 3.215.127.79
 - > ➜  ssh -i ~/keys/production.pem ubuntu@53.104.2.123'
+
+## HTML
+- use tags: <>, </>
+- start with > !DOCTYPE html
+- for structuring sites
+- can do videos, images, and input too
+- give elements an id to easily refer to them later
