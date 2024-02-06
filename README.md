@@ -26,3 +26,12 @@ The following technologies will be used in the app:
 * **CSS --** impliment design/UI of application
 * **Service --** backend service with endpoints for login, prompt generation, saving prompts, and retrieving prompts
 * **Javascript --** provides login, prompt display, choice display, and backend endpoint calls 
+
+## HTML Deliverable
+For this deliverable, I built out the structure of my website using HTML. This was completed on 2/5/2024.
+* **HTML pages --** Four HTML pages that represent login, generation, saved prompts, and information about the site.
+* **Links --** The login page links to the generation page. Each page has a navigation bar allowing users to move easily between pages.
+* **Text --** A description of the application is on the about page, and generated prompts are displayed through text.
+* **Images --** An image is included on the about page. 
+* **DB/Login --** Login draws from the database through an input box and button. Options on the generation page will change what information is drawn from the database. On the saved prompts page, buttons allow the user to get specific prompts from the database.
+* **WebSocket --** Through the share button on the generation and saved prompts pages, the user can share prompts. 
