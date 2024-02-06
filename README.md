@@ -34,4 +34,4 @@ For this deliverable, I built out the structure of my website using HTML. This w
 * **Text --** A description of the application is on the about page, and generated prompts are displayed through text.
 * **Images --** An image is included on the about page for some color.
 * **DB/Login --** Login draws from the database through an input box and button. Options on the generation page will change what information is drawn from the database. On the saved prompts page, buttons allow the user to get specific prompts from the database.
-* **WebSocket --** Through the share button on the generation and saved prompts pages, the user can share prompts. 
+* **WebSocket --** Through the share button on the generation and saved prompts pages, the user can share prompts. Shared prompts will appear in the user's saved prompts unless full. 
