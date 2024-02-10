@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: calibri;
+    height: 100vh;
+  }
+  
+  header {
+    flex: 0 40px;
+    flex-direction: row;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: pink;
+    font-weight: bold;
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  footer {
+    flex: 0 30px;
+    background: black;
+    color: white;
+    text-align: center;
+  }
