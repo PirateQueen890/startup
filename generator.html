@@ -36,14 +36,21 @@
     <main>
       <section id="options">
         <h2>Options</h2>
+
         <fieldset>
-            <legend>Type</legend>
-            <label for="optionWord">Word</label>
-            <input type="radio" id="optionWord" name="varRadio" value="optionWord" checked />
-            <label for="optionFusion">Fusion</label>
-            <input type="radio" id="optionFusion" name="varRadio" value="optionFusion" />
-            <label for="optionCharacter">Character</label>
-            <input type="radio" id="optionCharacter" name="varRadio" value="optionCharacter" />
+          <legend>Type</legend>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionWord" value="optionWord">
+            <label class="form-check-label" for="optionWord">Word</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionFusion" value="optionFusion">
+            <label class="form-check-label" for="optionFusion">Fusion</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionCharacter" value="optionCharacter">
+            <label class="form-check-label" for="optionCharacter">Character</label>
+          </div>
         </fieldset>
 
         <fieldset>
