@@ -1,9 +1,11 @@
 main {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-items: center;
 }
 
 section {
     padding: 20px;
+    width: 50%;
+    height: 75vh;
 }
