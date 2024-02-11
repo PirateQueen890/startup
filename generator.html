@@ -9,6 +9,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="generator.css" />
 </head>
 
 <body>
@@ -23,7 +24,8 @@
         </nav>
     </header>
 
-    <section id="options">
+    <main>
+      <section id="options">
         <h2>Options</h2>
         <fieldset>
             <legend>Type</legend>
@@ -56,19 +58,20 @@
           </fieldset>
 
           <button type="button" id="buttonGenerate">Generate</button>
-    </section>
+      </section>
 
-    <section id="prompt">
-        <hr/>
-        <h2>Prompt</h2>
-        <p id="outputField">Prompt will be outputted here.</p>
-        <button type="button" id="buttonSave">Save</button>
-        <button type="button" id="buttonShare">Share</button>
-    </section>
+      <section id="prompt">
+          <h2>Prompt</h2>
+          <p id="outputField">Prompt will be outputted here.</p>
+          <button type="button" id="buttonSave">Save</button>
+          <button type="button" id="buttonShare">Share</button>
+      </section>
+
+    </main>
+
 </body>
 
 <footer>
-    <hr/>
     <p>Emma Bills</p>
     <a href="https://github.com/PirateQueen890/startup">GitHub Repo</a>
 </footer>

@@ -1,0 +1,9 @@
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+section {
+    padding: 20px;
+}
