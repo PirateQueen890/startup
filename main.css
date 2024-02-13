@@ -42,3 +42,8 @@ body {
     font-weight: bold;
     padding: 10px;
   }
+
+  p {
+    font-family: 'Times New Roman', Times, serif;
+  }
+
