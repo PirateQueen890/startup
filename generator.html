@@ -55,32 +55,48 @@
 
         <fieldset>
             <legend>Genre</legend>
-            <label for="optionFantasy">Fantasy</label>
-            <input type="checkbox" id="optionFantasy" name="varCheckbox" value="optionFantasy" checked />
-            <label for="optionRomance">Romance</label>
-            <input type="checkbox" id="optionRomance" name="varCheckbox" value="optionRomance" />
-            <label for="optionDystopian">Dystopian</label>
-            <input type="checkbox" id="optionDystopian" name="varCheckbox" value="optionDystopian" />
-            <label for="optionMystery">Mystery</label>
-            <input type="checkbox" id="optionMystery" name="varCheckbox" value="optionMystery" />
-            <label for="optionHistorical">Historical</label>
-            <input type="checkbox" id="optionHistorical" name="varCheckbox" value="optionHistorical" />
-            <label for="optionRealistic">Realistic</label>
-            <input type="checkbox" id="optionRealistic" name="varCheckbox" value="optionRealistic" />
-            <label for="optionScifi">Sci-Fi</label>
-            <input type="checkbox" id="optionScifi" name="varCheckbox" value="optionScifi" />
-            <label for="optionSupernatural">Supernatural</label>
-            <input type="checkbox" id="optionSupernatural" name="varCheckbox" value="optionSupernatural" />
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="optionFantasy" value="optionFantasy">
+              <label class="form-check-label" for="optionFantasy">Fantasy</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="optionRomance" value="optionRomance">
+              <label class="form-check-label" for="optionRomance">Romance</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="optionDystopian" value="optionDystopian">
+              <label class="form-check-label" for="optionDystopian">Dystopian</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="optionMystery" value="optionMystery">
+              <label class="form-check-label" for="optionMystery">Mystery</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="optionHistorical" value="optionHistorical">
+              <label class="form-check-label" for="optionHistorical">Historical</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="optionRealistic" value="optionRealistic">
+              <label class="form-check-label" for="optionRealistic">Realistic</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="optionScifi" value="optionScifi">
+              <label class="form-check-label" for="optionScifi">Sci-Fi</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="optionSupernatural" value="optionSupernatural">
+              <label class="form-check-label" for="optionSupernatural">Supernatural</label>
+            </div>
           </fieldset>
 
-          <button type="button" id="buttonGenerate">Generate</button>
+          <button type="button" class="btn btn-primary">Generate</button>
       </section>
 
       <section id="prompt">
           <h2>Prompt</h2>
           <p id="outputField">Prompt will be outputted here.</p>
-          <button type="button" id="buttonSave">Save</button>
-          <button type="button" id="buttonShare">Share</button>
+          <button type="button" class="btn btn-primary">Favorite</button>
+          <button type="button" class="btn btn-primary">Share</button>
       </section>
 
     </main>
