@@ -39,4 +39,6 @@ body {
     background: #242526;
     color: white;
     text-align: center;
+    font-weight: bold;
+    padding: 10px;
   }
