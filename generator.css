@@ -15,7 +15,23 @@ section {
 h2 {
     text-align: center;
     font-weight: bold;
-    padding: 20px;
+    margin-bottom: 50px;
+}
+
+fieldset {
+    margin-bottom: 30px;
+}
+
+p {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    height: 150px;
+}
+
+.card-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
 }
 
 

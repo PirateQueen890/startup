@@ -34,73 +34,90 @@
   </header>
 
     <main>
-      <section id="options">
-        <h2>Options</h2>
-
-        <fieldset>
-          <legend>Type</legend>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionWord" value="optionWord">
-            <label class="form-check-label" for="optionWord">Word</label>
+      <div class="card">
+        <div class="card-header">
+          Generate Prompt
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Options</h2>
+                  <fieldset>
+                    <legend>Type</legend>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionWord" value="optionWord">
+                      <label class="form-check-label" for="optionWord">Word</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionFusion" value="optionFusion">
+                      <label class="form-check-label" for="optionFusion">Fusion</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionCharacter" value="optionCharacter">
+                      <label class="form-check-label" for="optionCharacter">Character</label>
+                    </div>
+                  </fieldset>
+          
+                  <fieldset>
+                      <legend>Genre</legend>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="optionFantasy" value="optionFantasy">
+                        <label class="form-check-label" for="optionFantasy">Fantasy</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="optionRomance" value="optionRomance">
+                        <label class="form-check-label" for="optionRomance">Romance</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="optionDystopian" value="optionDystopian">
+                        <label class="form-check-label" for="optionDystopian">Dystopian</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="optionMystery" value="optionMystery">
+                        <label class="form-check-label" for="optionMystery">Mystery</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="optionHistorical" value="optionHistorical">
+                        <label class="form-check-label" for="optionHistorical">Historical</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="optionRealistic" value="optionRealistic">
+                        <label class="form-check-label" for="optionRealistic">Realistic</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="optionScifi" value="optionScifi">
+                        <label class="form-check-label" for="optionScifi">Sci-Fi</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="optionSupernatural" value="optionSupernatural">
+                        <label class="form-check-label" for="optionSupernatural">Supernatural</label>
+                      </div>
+                    </fieldset>
+                    
+                    <div class="col-md-12 text-center">
+                      <button type="button" class="btn btn-primary">Generate</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Prompt</h2>
+                  <p>Click the Generate button to get a prompt!</p>
+                  <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-primary">Favorite</button>
+                    <button type="button" class="btn btn-primary">Share</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionFusion" value="optionFusion">
-            <label class="form-check-label" for="optionFusion">Fusion</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="optionCharacter" value="optionCharacter">
-            <label class="form-check-label" for="optionCharacter">Character</label>
-          </div>
-        </fieldset>
 
-        <fieldset>
-            <legend>Genre</legend>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="optionFantasy" value="optionFantasy">
-              <label class="form-check-label" for="optionFantasy">Fantasy</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="optionRomance" value="optionRomance">
-              <label class="form-check-label" for="optionRomance">Romance</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="optionDystopian" value="optionDystopian">
-              <label class="form-check-label" for="optionDystopian">Dystopian</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="optionMystery" value="optionMystery">
-              <label class="form-check-label" for="optionMystery">Mystery</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="optionHistorical" value="optionHistorical">
-              <label class="form-check-label" for="optionHistorical">Historical</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="optionRealistic" value="optionRealistic">
-              <label class="form-check-label" for="optionRealistic">Realistic</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="optionScifi" value="optionScifi">
-              <label class="form-check-label" for="optionScifi">Sci-Fi</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="optionSupernatural" value="optionSupernatural">
-              <label class="form-check-label" for="optionSupernatural">Supernatural</label>
-            </div>
-          </fieldset>
-
-          <button type="button" class="btn btn-primary">Generate</button>
-      </section>
-
-      <section id="prompt">
-          <h2>Prompt</h2>
-          <p id="outputField">Prompt will be outputted here.</p>
-          <button type="button" class="btn btn-primary">Favorite</button>
-          <button type="button" class="btn btn-primary">Share</button>
-      </section>
-
+      
     </main>
-
 </body>
 
 <footer class="bg-dark text-white-50">
