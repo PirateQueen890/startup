@@ -9,6 +9,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="favorites.css" />
 </head>
 
 <body>
@@ -33,32 +34,34 @@
   </header>
 
   <main>
-    <div class="card">
+    <div class="card" id="cardFavorites">
       <div class="card-header">
         Favorite Prompts
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-sm-6">
-            <div class="card">
+            <div class="card" id="cardSaved">
               <div class="card-body">
                 <h2 class="card-title">Save files</h2>
-                <button type="button" id="save1">[Empty]</button>
-                <button type="button" id="save2">[Empty]</button>
-                <button type="button" id="save3">[Empty]</button>
-                <button type="button" id="save4">[Empty]</button>
-                <button type="button" id="save5">[Empty]</button>
-                <button type="button" id="save6">[Empty]</button>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-primary" id="save1" type="button">[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save2" type="button">[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save3" type="button">[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save4" type="button">[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save5" type="button">[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save6" type="button">[Empty]</button>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="card">
+            <div class="card" id="cardDisplayPrompt">
               <div class="card-body">
                 <h2 class="card-title">Prompt</h2>
                 <p>Click a save file to see a favorited prompt!</p>
                 <div class="col-md-12 text-center">
-                  <button type="button" class="btn btn-primary">Favorite</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
                   <button type="button" class="btn btn-primary">Share</button>
                 </div>
               </div>
