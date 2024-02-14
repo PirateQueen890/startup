@@ -37,13 +37,13 @@
         <hr/>
         <h2>Welcome!</h2>
         <p>Please sign in. Users who are signed in can favorite and forward prompts.</p>
-        <form>
-          <div class="form-group">
-            <label for="inputUsername">Username</label>
-            <input type="username" class="form-control" id="inputUsername" aria-describedby="usernameHelp" placeholder="Enter username">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+
+        <form method="get" action="generator.html">
+          <label for="inputUsername">Username: </label>
+          <input type="text" id="name" placeholder="Your name here" />
+          <button type="submit" class="btn btn-primary">Login</button>
         </form>
+        
     </main>
 </body>
 
