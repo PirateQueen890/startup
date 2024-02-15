@@ -36,3 +36,15 @@ For this deliverable, I built out the structure of my website using HTML. This w
 * **DB/Login --** Login draws from the database through an input box and button. Options on the generation page will change what information is drawn from the database. On the saved prompts page, buttons allow the user to get specific prompts from the database.
 * **WebSocket --** Through the share button on the generation and saved prompts pages, the user can share prompts. Shared prompts will appear in the user's saved prompts unless full. 
 * **3rd Party Service Call --** Added generate button. When clicked, it will grab appropriate words through an API call to an online dictionary (perhaps Synonyms) to create a prompt.
+
+## CSS Deliverable
+For this deliverable, I formatted my website using CSS. This was completed on 2/14/2024.
+* **Prerequisite: Simon CSS deployed to your production environment --** Completed. Use simon subdomain to access.
+* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer on each page.
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** Completed. Feb 9 - 4 commits, Feb 10 - 3 commits, Feb 12 - 4 commits, Feb 13 - 4 commits, Feb 14 - 5 commits.
+* **Properly styled CSS header, footer, and main content body --** Completed. All headers, footers, and main bodies were formatted with CSS.
+* **Properly styled CSS navigation elements --** Completed. All pages include a bootstrap navigation bar in the header.
+* **Responsive to window resizing --** Completed. All pages were formatted with flex boxes, so they respond to window resizing.
+* **Properly styled CSS application elements --** Completed. Pages use buttons and cards to style application elements.
+* **Properly styled CSS application text content --** Completed. All text is formatted using fonts, spacing, and size.
+* **Properly styled CSS application images --** Completed. The image on the About page was formatted using a bootstrap class.
