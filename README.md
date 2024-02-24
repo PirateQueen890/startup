@@ -48,3 +48,7 @@ For this deliverable, I formatted my website using CSS. This was completed on 2/
 * **Properly styled CSS application elements --** Completed. Pages use buttons and cards to style application elements.
 * **Properly styled CSS application text content --** Completed. All text is formatted using fonts, spacing, and size.
 * **Properly styled CSS application images --** Completed. The image on the About page was formatted using a bootstrap class.
+
+## JavaScript Deliverable
+* **Prerequisite: Simon JavaScript deployed to your production environment --** Completed. Use simon subdomain to access.
+* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer on each page.
