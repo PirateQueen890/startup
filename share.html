@@ -9,7 +9,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="favorites.css" />
+    <link rel="stylesheet" href="share.css" />
+    <script src="share.js"></script>
 </head>
 
 <body>
@@ -34,38 +35,32 @@
   </header>
 
   <main>
-    <div class="card" id="cardFavorites">
+    <div class="card" id="cardShare">
       <div class="card-header">
-        Favorite Prompts
+        Share Prompt
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-sm-6">
-            <div class="card" id="cardSaved">
+            <div class="card" id="cardShareInput">
               <div class="card-body">
-                <h2 class="card-title">Save files</h2>
+                <h2 class="card-title">Share</h2>
                 <div class="d-grid gap-2">
-                  <button class="btn btn-outline-primary" id="save1" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save2" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save3" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save4" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save5" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save6" type="button" disabled>[Empty]</button>
+                    <p>Please input below the username of the user you wish to share this prompt.</p>
+                    <div id="inputShareUsername">
+                        <label for="inputShareUsername">Friend's Username: </label>
+                        <input type="text" id="friendUsername" placeholder="Your friend's username"/>
+                        <button class="btn btn-primary" id="buttonShareFinal" onclick="share()">Share</button>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="card" id="cardDisplayPrompt">
+            <div class="card" id="cardDisplayResult">
               <div class="card-body">
-                <h2 class="card-title">Prompt</h2>
-                <p id="displaySave">Click a save file to see a favorited prompt!</p>
-                <div class="col-md-12 text-center">
-                  <button type="button" class="btn btn-danger" id="buttonDelete">Delete</button>
-                  <a href="share.html">
-                    <button class="btn btn-primary" id="buttonShareFav">Share</button>
-                  </a>
-                </div>
+                <h2 class="card-title">Result</h2>
+                <p id="displayShareResult">Result will appear here.</p>
               </div>
             </div>
           </div>
