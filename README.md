@@ -52,3 +52,9 @@ For this deliverable, I formatted my website using CSS. This was completed on 2/
 ## JavaScript Deliverable
 * **Prerequisite: Simon JavaScript deployed to your production environment --** Completed. Use simon subdomain to access.
 * **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer on each page.
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** 
+* **JavaScript support for future login --** Completed. Implemented in login.js
+* **JavaScript support for future database data --**
+* **JavaScript support for future WebSocket --**
+* **JavaScript support for your application's interaction logic --**
