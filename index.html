@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="main.css" />
+    <script src="login.js"></script>
 </head>
 
 <body>
@@ -38,11 +39,11 @@
         <h2>Welcome!</h2>
         <p>Sign in to favorite and share generated prompts</p>
 
-        <form method="get" action="generator.html">
+        <div id="inputUsername">
           <label for="inputUsername">Username: </label>
           <input type="text" id="name" placeholder="Your name here" />
-          <button type="submit" class="btn btn-primary" id="buttonLogin">Login</button>
-        </form>
+          <button class="btn btn-primary" id="buttonLogin" onclick="login()">Login</button>
+        </div>
         
     </main>
 </body>
