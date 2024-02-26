@@ -51,3 +51,13 @@ GitHub is awesome and a fun time. Had a hard time figuring out VS Code and git, 
 - for structuring sites
 - can do videos, images, and input too
 - give elements an id to easily refer to them later
+
+## CSS
+- **#** for ids
+- **.** for class
+- flex box
+
+## JavaScript
+- function
+- arrow function - (parameters) => function
+- promises and promise chains
