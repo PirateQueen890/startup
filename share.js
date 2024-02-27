@@ -34,7 +34,7 @@ function returnRequest(request) {
 
 function webSocketRequest(request, resolve, reject) {
     //Websocket
-    resolve(request);
+    setTimeout(() => resolve(request), 3000);
 }
 
 function failedRequest(request) {
