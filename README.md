@@ -56,5 +56,5 @@ For this deliverable, I formatted my website using CSS. This was completed on 2/
 * **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** 
 * **JavaScript support for future login --** Completed. Implemented in login.js
 * **JavaScript support for future database data --** 
-* **JavaScript support for future WebSocket --** 
+* **JavaScript support for future WebSocket --** Completed. Implemeted in share.js
 * **JavaScript support for your application's interaction logic --**
