@@ -6,12 +6,6 @@ main {
     justify-content: center;
 }
 
-section {
-    padding: 50px;
-    width: 50%;
-    height: 75vh;
-}
-
 h2 {
     text-align: center;
     font-weight: bold;
@@ -25,7 +19,6 @@ fieldset {
 p {
     margin-top: 50px;
     margin-bottom: 30px;
-    height: 150px;
 }
 
 .card-header {

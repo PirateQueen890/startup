@@ -47,6 +47,7 @@
                 <h2 class="card-title">Share</h2>
                 <div class="d-grid gap-2">
                     <p>Please input below the username of the user you wish to share this prompt.</p>
+                    <ol id="requests"></ol>
                     <div id="inputShareUsername">
                         <label for="inputShareUsername">Friend's Username: </label>
                         <input type="text" id="friendUsername" placeholder="Your friend's username"/>
@@ -59,8 +60,15 @@
           <div class="col-sm-6">
             <div class="card" id="cardDisplayResult">
               <div class="card-body">
-                <h2 class="card-title">Result</h2>
-                <ol id="requests"></ol>
+                <h2 class="card-title">Received</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" id="cardDisplayResult">
+              <div class="card-body">
+                <h2 class="card-title">View Received</h2>
               </div>
             </div>
           </div>
