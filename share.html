@@ -41,15 +41,14 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div class="card" id="cardShareInput">
               <div class="card-body">
                 <h2 class="card-title">Share</h2>
-                <div class="d-grid gap-2">
+                <div class="d-grid gap-1">
                     <p>Please input below the username of the user you wish to share this prompt.</p>
                     <ol id="requests"></ol>
                     <div id="inputShareUsername">
-                        <label for="inputShareUsername">Friend's Username: </label>
                         <input type="text" id="friendUsername" placeholder="Your friend's username"/>
                         <button class="btn btn-primary" id="buttonShareFinal" onclick="share()">Share</button>
                     </div>
@@ -57,22 +56,27 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="card" id="cardDisplayResult">
+          <div class="col-sm-4">
+            <div class="card" id="cardDisplayReceivedList">
               <div class="card-body">
                 <h2 class="card-title">Received</h2>
+                <ol id="receivedPrompts"></ol>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card" id="cardDisplayResult">
+          <div class="col-sm-4">
+            <div class="card" id="cardDisplayReceivedPrompt">
               <div class="card-body">
-                <h2 class="card-title">View Received</h2>
+                <h2 class="card-title">Received Prompt</h2>
+                <p id="displaySave">Click a received prompt to see it!</p>
+                <div id="favButtonDiv">
+                    <button class="btn btn-primary" id="buttonFavShare">Favorite</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        
   </main>
 </body>
 

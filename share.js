@@ -33,10 +33,18 @@ function returnRequest(request) {
 }
 
 function webSocketRequest(request, resolve, reject) {
-    //Websocket
+    //Websocket placeholder
     setTimeout(() => resolve(request), 3000);
 }
 
 function failedRequest(request) {
     request.element.innerHTML = `<span>[${request.id}] 😔 <b>Failed</b>!</span>`;
+}
+
+function receive() {
+    //websocket placeholder
+    const receiveElement = document.createElement("li");
+    const receive = { element: receiveElement, id: "ThePumpkinKing", prompt: "This is an example prompt: Peace Machine" };
+    
+    receiveElement.innerHTML = `<span>[${receive.id}] 😄 <i>Received</i>!</span>`;
 }
