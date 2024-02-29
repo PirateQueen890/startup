@@ -16,6 +16,7 @@ Bonfire
 Bowling Alley
 Bridge
 Bookstore
+Circus
 Cafeteria
 Casino
 Catacombs

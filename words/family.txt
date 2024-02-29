@@ -42,3 +42,12 @@ home
 relative
 pregnant
 picnic
+ancestor
+folk
+kinship
+clan
+lineage
+holidays
+respect
+elder
+younger
