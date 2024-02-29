@@ -287,3 +287,9 @@ function addRandomWords(bank, topic, number) {
 
     return bank;
 }
+
+function share() {
+    const currentPrompt = document.querySelector("#displayPrompt");
+    localStorage.setItem("currentPrompt", currentPrompt.textContent);
+    window.location.href = "share.html";
+}
