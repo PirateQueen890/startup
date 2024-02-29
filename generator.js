@@ -16,33 +16,60 @@ const conflicts = ["Character vs. Character(s)",
 
 
 function generate() {
-    const generationType = document.querySelector("#setType");
-    localStorage.setItem("generationType", generationType.value);
+    const radios = document.getElementsByName("inlineRadioOptions");
+    let generationType;
 
-    const generationTopic = document.querySelector("#setTopic");
+    for (i = 0; i < radios.length; ++i) {
+        if (radios[i].checked) {
+            generationType = radios[i].value;
+            localStorage.setItem("generationType", generationType.value);
+            break;
+        }
+    }
+
+    const boxes = document.getElementsByName("inlineCheckOptions");
+    const generationTopic = [];
+    let j = 0;
+
+    for (i = 0; i < boxes.length; ++i) {
+        if (boxes[i].checked) {
+            generationTopic[j] = boxes[i].value;
+            ++j;
+        }
+    }
+
     localStorage.setItem("generationTopic", generationTopic.value);
 
-    generateScenario();
+    if (generationType === "optionFusion") {
+        generateFusion(generationTopic);
+    } else if (generationType === "optionCharacter") {
+        generateCharacter(generationTopic);
+    } else if (generationType === "optionSituation") {
+        generateScenario(generationTopic);
+    } else {
+        const error = "Please select a generation type on the left."
+        document.getElementById("displayPrompt").textContent=error;
+    }
 }
 
-function generateFusion() {
+function generateFusion(topics) {
     
 }
 
-function generateCharacter() {
+function generateCharacter(topics) {
 
 }
 
-function generateScenario() {
+function generateScenario(topics) {
     //const settings = loadBank("./words/settings.txt");
    // const conflicts = loadBank("./words/conflict");
 
     const randomSetting = settings[getRandomInt(0, settings.length - 1)];
     const randomConflict = conflicts[getRandomInt(0, conflicts.length - 1)];
 
-    const prompt = "Setting: " + randomSetting + "/n" + "Conflict: " + randomConflict;
+    const prompt = "Setting: " + randomSetting + "<br> Conflict: " + randomConflict;
 
-    document.getElementById("displayPrompt").textContent=prompt;
+    document.querySelector("#displayPrompt").innerHTML=prompt;
 }
 
 //function loadBank(file) {
