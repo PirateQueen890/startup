@@ -31,9 +31,6 @@ Cryogenic Sleep Chamber
 Daycare
 Desert
 Diner
-Dragon’s Lair
-Dungeon
-Egyptian Pyramids
 Elevator
 Farms
 Forest
@@ -46,7 +43,6 @@ Graveyard
 Grocery Store
 Halloween Party
 Haunted House
-Herbalist Shop
 High School Hallway
 Hospital
 Hotel Room
@@ -58,17 +54,12 @@ Lake
 Library
 Locker Room
 Meadow
-Medieval Castle Armory
-Medieval Marketplace
 Middle School Dance
-Mindscape
 Mountains
 Movie Theatre
 Night Club
 Nursery
-Ocean/Sea Bed
 Old Pick-Up Truck
-Pirate Ship
 Playground
 Pond
 Pool Hall
@@ -83,12 +74,9 @@ School Bus
 School Office
 Shopping Mall
 Sleep-Away Camp
-Spaceport
-Spaceship
 Stands at a Sporting Event
 Storm Sewer
 Subway Station
-Swamp
 Taxi cab
 Teacher’s Lounge
 Toolshed
@@ -103,3 +91,21 @@ Water Slide Park
 Wedding Ceremony
 Woods at Night
 Zoo
+Dragon’s Lair
+Dungeon
+Egyptian Pyramids
+Herbalist Shop
+Medieval Castle Armory
+Medieval Marketplace
+Ocean/Sea Bed
+Jungle
+Forest
+Glowworm Cave
+Palace
+Castle
+City Slums
+Swamp
+Pirate Ship
+Mindscape
+Spaceport
+Spaceship

@@ -23,4 +23,5 @@ Violet
 Chocolate 
 Azure 
 Sİlver 
-Bronze 
+Bronze
+Hazel
