@@ -242,6 +242,8 @@ function generateCharacter(topics) {
     const randomFlaw = flaws[getRandomInt(0, flaws.length - 1)];
     const randomStrength = strengths[getRandomInt(0, strengths.length - 1)];
     const randomTalent = talents[getRandomInt(0, talents.length - 1)];
+
+    //In the future, this will be an API call to colormind.io to get a random color palette
     const randomColor = colors[getRandomInt(0, colors.length - 1)];
 
     const prompt = "Motivation: " + randomMotivation + "<br> Flaw: " + randomFlaw + "<br> Strength: " + randomStrength + "<br> Talent: " 

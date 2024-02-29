@@ -10,9 +10,10 @@
     />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="favorites.css" />
+    <script src="favorites.js"></script>
 </head>
 
-<body>
+<body onload="favorites()">
   <header class="container-fluid">
     <nav class="navbar fixed-top navbar-dark">
       <a class="navbar-brand" href="#">Writing Prompts<sup>&reg;</sup></a>
@@ -45,12 +46,12 @@
               <div class="card-body">
                 <h2 class="card-title">Save files</h2>
                 <div class="d-grid gap-2">
-                  <button class="btn btn-outline-primary" id="save1" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save2" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save3" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save4" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save5" type="button" disabled>[Empty]</button>
-                  <button class="btn btn-outline-primary" id="save6" type="button" disabled>[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save1" type="button" onclick="displaySave(this.id)" disabled>[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save2" type="button" onclick="displaySave(this.id)" disabled>[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save3" type="button" onclick="displaySave(this.id)" disabled>[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save4" type="button" onclick="displaySave(this.id)" disabled>[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save5" type="button" onclick="displaySave(this.id)" disabled>[Empty]</button>
+                  <button class="btn btn-outline-primary" id="save6" type="button" onclick="displaySave(this.id)" disabled>[Empty]</button>
                 </div>
               </div>
             </div>
