@@ -9,21 +9,40 @@ function favorites() {
     const save5 = document.getElementById("save5");
     const save6 = document.getElementById("save6");
 
-    saves = [save1, save2, save3, save4, save5, save6];
+    saves = localStorage.getItem("favorites");
+    saves = JSON.parse(saves);
 
-    //Grab info from database and change saves
     
-    //Placeholders
-    save1.textContent = "[Fusion]";
-    save1.disabled = false;
+    if (saves[0].prompt != "") {
+        save1.textContent = saves[0].type;
+        save1.disabled = false;
+    }
 
-    save2.textContent = "[Character]";
-    save2.disabled = false;
+    if (saves[1].prompt != "") {
+        save2.textContent = saves[1].type;
+        save2.disabled = false;
+    }
 
-    save3.textContent = "[Situation]";
-    save3.disabled = false;
+    if (saves[2].prompt != "") {
+        save3.textContent = saves[2].type;
+        save3.disabled = false;
+    }
 
-    localStorage.setItem("favorites", saves);
+    if (saves[3].prompt != "") {
+        save4.textContent = saves[3].type;
+        save4.disabled = false;
+    }
+
+    if (saves[4].prompt != "") {
+        save5.textContent = saves[4].type;
+        save5.disabled = false;
+    }
+
+    if (saves[5].prompt != "") {
+        save6.textContent = saves[5].type;
+        save6.disabled = false;
+    }
+    
 }
 
 function displaySave(buttonId) {
@@ -32,17 +51,17 @@ function displaySave(buttonId) {
     currentSave = document.getElementById(buttonId);
 
     if (buttonId === "save1") {
-        document.querySelector("#displaySave").innerHTML = saveInfo1;
+        document.querySelector("#displaySave").innerHTML = saves[0].prompt;
     } else if (buttonId === "save2") {
-        document.querySelector("#displaySave").innerHTML = saveInfo2;
+        document.querySelector("#displaySave").innerHTML = saves[1].prompt;
     } else if (buttonId === "save3") {
-        document.querySelector("#displaySave").innerHTML = saveInfo3;
+        document.querySelector("#displaySave").innerHTML = saves[2].prompt;
     } else if (buttonId === "save4") {
-        document.querySelector("#displaySave").innerHTML = saveInfo4;
+        document.querySelector("#displaySave").innerHTML = saves[3].prompt;
     } else if (buttonId === "save5") {
-        document.querySelector("#displaySave").innerHTML = saveInfo5;
+        document.querySelector("#displaySave").innerHTML = saves[4].prompt;
     } else if (buttonId === "save6") {
-        document.querySelector("#displaySave").innerHTML = saveInfo6;
+        document.querySelector("#displaySave").innerHTML = saves[5].prompt;
     }
 }
 
@@ -57,4 +76,6 @@ function deletePrompt() {
 
     currentSave.disabled = true;
     currentSave.textContent = "[Empty]";
+    
+    
 }
