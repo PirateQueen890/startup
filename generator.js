@@ -169,7 +169,7 @@ function generate() {
     }
 
     const boxes = document.getElementsByName("inlineCheckOptions");
-    const generationTopic = [];
+    let generationTopic = [];
     let j = 0;
 
     for (i = 0; i < boxes.length; ++i) {
@@ -177,6 +177,10 @@ function generate() {
             generationTopic[j] = boxes[i].value;
             ++j;
         }
+    }
+
+    if (generationTopic.length === 0) {
+        generationTopic = ["optionFantasy", "optionRomance", "optionFamily", "optionWar", "optionSupernatural"];
     }
 
     localStorage.setItem("generationTopic", generationTopic.value);
@@ -194,7 +198,43 @@ function generate() {
 }
 
 function generateFusion(topics) {
-    
+    let bank = [];
+
+    for (i = 0; i < topics.length; ++i) {
+        if (topics[i] === "optionFantasy") {
+            addRandomWords(bank, topicFantasy, 15);
+        } else if (topics[i] === "optionRomance") {
+            addRandomWords(bank, topicRomance, 15);
+        } else if (topics[i] === "optionWar") {
+            addRandomWords(bank, topicWar, 15);
+        } else if (topics[i] === "optionFamily") {
+            addRandomWords(bank, topicFamily, 15);
+        } else if (topics[i] === "optionSupernatural") {
+            addRandomWords(bank, topicSupernatural, 15);
+        }
+    }
+
+    let fusions = [];
+
+    for (i = 0; i < 6; ++i) {
+        const firstNum = getRandomInt(0, bank.length - 1);
+        let fusion = bank[firstNum];
+        bank.splice(firstNum, 1);
+
+        const secondNum = getRandomInt(0, bank.length - 1);
+        fusion = fusion + " " + bank[secondNum];
+        bank.splice(secondNum, 1);
+
+        fusions.push(fusion);
+    }
+
+    let prompt = "";
+
+    for (i = 0; i < fusions.length; ++i) {
+        prompt = prompt + "<br>" + fusions[i];
+    }
+
+    document.querySelector("#displayPrompt").innerHTML=prompt;
 }
 
 function generateCharacter(topics) {
@@ -236,4 +276,12 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function addRandomWords(bank, topic, number) {
+    for (j = 0; j < number; ++j) {
+        bank.push(topic[getRandomInt(0, topic.length - 1)]);
+    }
+
+    return bank;
 }
