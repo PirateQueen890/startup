@@ -15,5 +15,8 @@ function login() {
         localStorage.setItem("favorites", JSON.stringify(favorites));
     }
     
+    let currentPrompt = [{type: "", prompt: ""}];
+    localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
+
     window.location.href = "generator.html";
 }

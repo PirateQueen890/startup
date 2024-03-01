@@ -66,8 +66,9 @@ function displaySave(buttonId) {
 }
 
 function share() {
-    const currentPrompt = document.querySelector("#displaySave");
-    localStorage.setItem("currentPrompt", currentPrompt.textContent);
+    const currentPrompt = document.querySelector("#displayPrompt");
+    localStorage.removeItem("currentPrompt");
+    localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
     window.location.href = "share.html";
 }
 
@@ -101,6 +102,4 @@ function deletePrompt() {
 
     currentSave.disabled = true;
     currentSave.textContent = "[Empty]";
-    
-    
 }

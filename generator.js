@@ -156,6 +156,16 @@ const topicSupernatural = ["Demon", "Psychic", "Magic", "Metaphysical", "Angel",
 "Shaman", "Medicine", "Herbs", "Divine", "Mystery", "Mysterious", "Boogeyman", "Eerie", "Superstitious", "Superstition", "Religion", 
 "Religious", "Werewolf", "Vampire", "Monster", "Legend", "Folklore", "Death", "Spirit"]
 
+let currentPrompt;
+let newPrompt = "";
+
+function loadDisplay() {
+    currentPrompt = localStorage.getItem("currentPrompt");
+    currentPrompt = JSON.parse(currentPrompt);
+
+    document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt;
+}
+
 function generate() {
     const radios = document.getElementsByName("inlineRadioOptions");
     let generationType;
@@ -186,15 +196,24 @@ function generate() {
     localStorage.setItem("generationTopic", generationTopic.value);
 
     if (generationType === "optionFusion") {
+        generationType = "Fusion";
         generateFusion(generationTopic);
     } else if (generationType === "optionCharacter") {
+        generationType = "Character";
         generateCharacter(generationTopic);
     } else if (generationType === "optionSituation") {
+        generationType = "Situation";
         generateScenario(generationTopic);
     } else {
         const error = "Please select a generation type on the left."
         document.getElementById("displayPrompt").textContent=error;
     }
+
+    currentPrompt[0].prompt = newPrompt;
+    currentPrompt[0].type = generationType;
+    newPrompt = "";
+    localStorage.removeItem("currentPrompt");
+    localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
 }
 
 function generateFusion(topics) {
@@ -228,13 +247,11 @@ function generateFusion(topics) {
         fusions.push(fusion);
     }
 
-    let prompt = "";
-
     for (i = 0; i < fusions.length; ++i) {
-        prompt = prompt + "<br>" + fusions[i];
+        newPrompt = newPrompt + "<br>" + fusions[i];
     }
 
-    document.querySelector("#displayPrompt").innerHTML=prompt;
+    document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
 
 function generateCharacter(topics) {
@@ -246,33 +263,21 @@ function generateCharacter(topics) {
     //In the future, this will be an API call to colormind.io to get a random color palette
     const randomColor = colors[getRandomInt(0, colors.length - 1)];
 
-    const prompt = "Motivation: " + randomMotivation + "<br> Flaw: " + randomFlaw + "<br> Strength: " + randomStrength + "<br> Talent: " 
+    newPrompt = "Motivation: " + randomMotivation + "<br> Flaw: " + randomFlaw + "<br> Strength: " + randomStrength + "<br> Talent: " 
     + randomTalent + "<br> Color: " + randomColor;
 
-    document.querySelector("#displayPrompt").innerHTML=prompt;
+    document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
 
 function generateScenario(topics) {
-    //const settings = loadBank("./words/settings.txt");
-   // const conflicts = loadBank("./words/conflict");
-
     const randomSetting = settings[getRandomInt(0, settings.length - 1)];
     const randomConflict = conflicts[getRandomInt(0, conflicts.length - 1)];
     const randomTheme = themes[getRandomInt(0, themes.length - 1)];
 
-    const prompt = "Setting: " + randomSetting + "<br> Conflict: " + randomConflict + "<br> Theme: " + randomTheme;
+    newPrompt = "Setting: " + randomSetting + "<br> Conflict: " + randomConflict + "<br> Theme: " + randomTheme;
 
-    document.querySelector("#displayPrompt").innerHTML=prompt;
+    document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
-
-//function loadBank(file) {
-    //const newFile = new File()
-    //const reader = new FileReader();
-   // reader.readAsText
-    // bank = fs.readFileSync(file).toString('utf-8');
-
-   // return bank;
-//}
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -290,6 +295,36 @@ function addRandomWords(bank, topic, number) {
 
 function share() {
     const currentPrompt = document.querySelector("#displayPrompt");
-    localStorage.setItem("currentPrompt", currentPrompt.textContent);
+    localStorage.removeItem("currentPrompt");
+    localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
     window.location.href = "share.html";
+}
+
+function favorite() {
+    let saves = localStorage.getItem("favorites");
+    saves = JSON.parse(saves);
+    let found = false;
+
+    for (i = 0; i < saves.length; ++i) {
+        if (saves[i].prompt === "") {
+            saves[i].type = currentPrompt[0].type;
+            saves[i].prompt = currentPrompt[0].prompt;
+            localStorage.removeItem("favorites");
+            localStorage.setItem("favorites", JSON.stringify(saves));
+            found = true;
+            break;
+        }
+    }
+
+    let message;
+
+    if (found === true) {
+        localStorage.removeItem("favorites");
+        localStorage.setItem("favorites", JSON.stringify(saves));
+        message = currentPrompt[0].prompt + "<br> Success!";
+        document.querySelector("#displayPrompt").innerHTML=message;
+    } else {
+        message = currentPrompt[0].prompt + "<br> FAILED: No space. Delete a favorited prompt and try again.";
+        document.querySelector("#displayPrompt").innerHTML=message;
+    }
 }

@@ -13,7 +13,7 @@
     <script src="generator.js"></script>
 </head>
 
-<body>
+<body onload="loadDisplay()">
   <header class="container-fluid">
     <nav class="navbar fixed-top navbar-dark">
       <a class="navbar-brand" href="#">Writing Prompts<sup>&reg;</sup></a>
@@ -97,7 +97,7 @@
                   <h2 class="card-title">Prompt</h2>
                   <p id="displayPrompt">Click the Generate button to get a prompt!</p>
                   <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-primary" id="buttonFavorite">Favorite</button>
+                    <button type="button" class="btn btn-primary" id="buttonFavorite" onclick="favorite()">Favorite</button>
                     <button class="btn btn-primary" id="buttonShareGen" onclick="share()">Share</button>
                   </div>
                 </div>
