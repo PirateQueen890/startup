@@ -17,37 +17,37 @@ function favorites() {
     
     if (saves[0].prompt != "") {
         promptType = saves[0].type;
-        save1.textContent = promptType;
+        save1.textContent = saves[0].owner + ", " + promptType;
         save1.disabled = false;
     }
 
     if (saves[1].prompt != "") {
         promptType = saves[1].type;
-        save2.textContent = promptType;
+        save2.textContent = saves[1].owner + ", " + promptType;
         save2.disabled = false;
     }
 
     if (saves[2].prompt != "") {
         promptType = saves[2].type;
-        save3.textContent = promptType;
+        save3.textContent = saves[2].owner + ", " + promptType;
         save3.disabled = false;
     }
 
     if (saves[3].prompt != "") {
         promptType = saves[3].type;
-        save4.textContent = promptType;
+        save4.textContent = saves[3].owner + ", " + promptType;
         save4.disabled = false;
     }
 
     if (saves[4].prompt != "") {
         promptType = saves[4].type;
-        save5.textContent = promptType;
+        save5.textContent = saves[4].owner + ", " + promptType;
         save5.disabled = false;
     }
 
     if (saves[5].prompt != "") {
         promptType = saves[5].type;
-        save6.textContent = promptType;
+        save6.textContent = saves[5].owner + ", " + promptType;
         save6.disabled = false;
     }
     
@@ -91,21 +91,27 @@ function deletePrompt() {
     const id = currentSave.id;
 
     if (id === "save1") {
+        saves[0].owner = "";
         saves[0].type = "";
         saves[0].prompt = "";
     } else if (id === "save2") {
+        saves[1].owner = "";
         saves[1].type = "";
         saves[1].prompt = "";
     } else if (id === "save3") {
+        saves[2].owner = "";
         saves[2].type = "";
         saves[2].prompt = "";
     } else if (id === "save4") {
+        saves[3].owner = "";
         saves[3].type = "";
         saves[3].prompt = "";
     } else if (id === "save5") {
+        saves[4].owner = "";
         saves[4].type = "";
         saves[4].prompt = "";
     } else if (id === "save6") {
+        saves[5].owner = "";
         saves[5].type = "";
         saves[5].prompt = "";
     }

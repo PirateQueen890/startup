@@ -299,11 +299,14 @@ function share() {
 
 function favorite() {
     let saves = localStorage.getItem("favorites");
+    let user = localStorage.getItem("username");
     saves = JSON.parse(saves);
+    user = JSON.parse(user);
     let found = false;
 
     for (i = 0; i < saves.length; ++i) {
         if (saves[i].prompt === "") {
+            saves[i].owner = user;
             saves[i].type = currentPrompt[0].type;
             saves[i].prompt = currentPrompt[0].prompt;
             localStorage.removeItem("favorites");
@@ -315,9 +318,7 @@ function favorite() {
 
     let message;
 
-    if (found === true) {
-        localStorage.removeItem("favorites");
-        localStorage.setItem("favorites", JSON.stringify(saves));
+    if (found) {
         message = currentPrompt[0].prompt + "<br> Success!";
         document.querySelector("#displayPrompt").innerHTML=message;
     } else {
