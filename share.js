@@ -1,5 +1,6 @@
 let currentPrompt;
 let received;
+let currentReceived;
 let promptType;
 let text;
 
@@ -60,6 +61,7 @@ function loadPage() {
 }
 
 function displayReceived(buttonId) {
+    currentReceived = document.getElementById(buttonId);
 
     if (buttonId === "received1") {
         text = received[0].prompt;
@@ -187,4 +189,45 @@ function favorite() {
         message = currentPrompt[0].prompt + "<br> FAILED: No space. Delete a favorited prompt and try again.";
         document.querySelector("#displayPrompt").innerHTML=message;
     }
+}
+
+function deleteReceived() {
+    //Remove received prompt from database
+
+    const id = currentReceived.id;
+
+    if (id === "received1") {
+        received[0].owner = "";
+        received[0].type = "";
+        received[0].prompt = "";
+    } else if (id === "received2") {
+        received[1].owner = "";
+        received[1].type = "";
+        received[1].prompt = "";
+    } else if (id === "received3") {
+        received[2].owner = "";
+        received[2].type = "";
+        received[2].prompt = "";
+    } else if (id === "received4") {
+        received[3].owner = "";
+        received[3].type = "";
+        received[3].prompt = "";
+    } else if (id === "received5") {
+        received[4].owner = "";
+        received[4].type = "";
+        received[4].prompt = "";
+    } else if (id === "received6") {
+        received[5].owner = "";
+        received[5].type = "";
+        received[5].prompt = "";
+    }
+
+    localStorage.removeItem("received");
+    localStorage.setItem("received", JSON.stringify(received));
+
+    currentReceived.disabled = true;
+    currentReceived.textContent = "[Empty]";
+
+    //websocket placeholder
+    receive();
 }
