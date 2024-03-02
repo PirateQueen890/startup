@@ -18,6 +18,17 @@ function login() {
         { name: "save6", type: "", prompt: "" },
     ];
     localStorage.setItem("favorites", JSON.stringify(favorites));
+
+    //Load any received prompt from the database
+    let received = [
+        { name: "received1", type: "Fusion", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
+        { name: "received2", type: "", prompt: "" },
+        { name: "received3", type: "", prompt: "" },
+        { name: "received4", type: "", prompt: "" },
+        { name: "received5", type: "", prompt: "" },
+        { name: "received6", type: "", prompt: "" },
+    ];
+    localStorage.setItem("received", JSON.stringify(received));
     
     let currentPrompt = [{type: "", prompt: "Click the Generate button to get a prompt!"}];
     localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
