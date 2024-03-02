@@ -41,8 +41,8 @@
 
         <div id="inputUsername">
           <label for="inputUsername">Username: </label>
-          <input type="text" id="username" placeholder="Your username here" />
-          <button class="btn btn-primary" id="buttonLogin" onclick="login()">Login</button>
+          <input type="text" id="username" placeholder="Your username here" oninput="activateButton()"/>
+          <button class="btn btn-primary" id="buttonLogin" onclick="login()" disabled>Login</button>
         </div>
         
     </main>
