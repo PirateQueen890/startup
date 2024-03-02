@@ -30,7 +30,7 @@ function login() {
     ];
     localStorage.setItem("received", JSON.stringify(received));
     
-    let currentPrompt = [{type: "", prompt: "Click the Generate button to get a prompt!"}];
+    let currentPrompt = [{owner: "", type: "", prompt: "Click the Generate button to get a prompt!"}];
     localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
 
     window.location.href = "generator.html";

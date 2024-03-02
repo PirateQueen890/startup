@@ -209,6 +209,10 @@ function generate() {
         document.getElementById("displayPrompt").textContent=error;
     }
 
+    let user = localStorage.getItem("username");
+    user = JSON.parse(user);
+
+    currentPrompt[0].owner = user;
     currentPrompt[0].prompt = newPrompt;
     currentPrompt[0].type = generationType;
     newPrompt = "";
@@ -299,14 +303,12 @@ function share() {
 
 function favorite() {
     let saves = localStorage.getItem("favorites");
-    let user = localStorage.getItem("username");
     saves = JSON.parse(saves);
-    user = JSON.parse(user);
     let found = false;
 
     for (i = 0; i < saves.length; ++i) {
         if (saves[i].prompt === "") {
-            saves[i].owner = user;
+            saves[i].owner = currentPrompt[0].owner;
             saves[i].type = currentPrompt[0].type;
             saves[i].prompt = currentPrompt[0].prompt;
             localStorage.removeItem("favorites");

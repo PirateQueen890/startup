@@ -2,7 +2,6 @@ let currentPrompt;
 let received;
 let currentReceived;
 let promptType;
-let text;
 
 function loadPage() {
     currentPrompt = localStorage.getItem("currentPrompt");
@@ -62,23 +61,29 @@ function loadPage() {
 
 function displayReceived(buttonId) {
     currentReceived = document.getElementById(buttonId);
+    let index;
 
     if (buttonId === "received1") {
-        text = received[0].prompt;
+        index = 0;
     } else if (buttonId === "received2") {
-        text = received[1].prompt;
+        index = 1;
     } else if (buttonId === "received3") {
-        text = received[2].prompt;
+        index = 2;
     } else if (buttonId === "received4") {
-        text = received[3].prompt;
+        index = 3;
     } else if (buttonId === "received5") {
-        text = received[4].prompt;
+        index = 4;
     } else if (buttonId === "received6") {
-        text = received[5].prompt;
+        index = 5;
     }
 
-    document.querySelector("#displayCurrentPrompt").innerHTML = text;
-    currentPrompt[0].prompt = text;
+    document.querySelector("#displayCurrentPrompt").innerHTML = received[index].prompt;
+
+    currentPrompt = [{owner: "", type: "", prompt: ""}];
+
+    currentPrompt[0].owner = received[index].owner;
+    currentPrompt[0].type = received[index].type;
+    currentPrompt[0].prompt = received[index].prompt;
 }
 
 function share() {
@@ -128,7 +133,7 @@ async function receive() {
     //websocket placeholder
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    await delay(5000);
+    await delay(30000);
     const space = findSpace();
     if (space) {
         loadPage();
@@ -137,7 +142,7 @@ async function receive() {
 
 function findSpace() {
     //websocket placeholder
-    const receivePrompt = [{ owner: "ThePumpkinKing", type: "Fusion", prompt: "This is an example prompt: Peace Machine" }];
+    const receivePrompt = [{ owner: "Marian1010", type: "Fusion", prompt: "This is an example prompt: Peace Machine" }];
     let found = false;
 
     for (i = 0; i < received.length; ++i) {
@@ -169,6 +174,7 @@ function favorite() {
 
     for (i = 0; i < saves.length; ++i) {
         if (saves[i].prompt === "") {
+            saves[i].owner = currentPrompt[0].owner;
             saves[i].type = currentPrompt[0].type;
             saves[i].prompt = currentPrompt[0].prompt;
             localStorage.removeItem("favorites");
@@ -180,14 +186,12 @@ function favorite() {
 
     let message;
 
-    if (found === true) {
-        localStorage.removeItem("favorites");
-        localStorage.setItem("favorites", JSON.stringify(saves));
+    if (found) {
         message = currentPrompt[0].prompt + "<br> Success!";
-        document.querySelector("#displayPrompt").innerHTML=message;
+        document.querySelector("#displayCurrentPrompt").innerHTML=message;
     } else {
         message = currentPrompt[0].prompt + "<br> FAILED: No space. Delete a favorited prompt and try again.";
-        document.querySelector("#displayPrompt").innerHTML=message;
+        document.querySelector("#displayCurrentPrompt").innerHTML=message;
     }
 }
 
