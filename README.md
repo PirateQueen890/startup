@@ -50,11 +50,12 @@ For this deliverable, I formatted my website using CSS. This was completed on 2/
 * **Properly styled CSS application images --** Completed. The image on the About page was formatted using a bootstrap class.
 
 ## JavaScript Deliverable
+For this deliverable, I added functionailty to my website using JavaScript. This was completed on 3/2/2024.
 * **Prerequisite: Simon JavaScript deployed to your production environment --** Completed. Use simon subdomain to access.
 * **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer on each page.
-* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
-* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** 
-* **JavaScript support for future login --** Completed. Implemented in login.js
-* **JavaScript support for future database data --** 
-* **JavaScript support for future WebSocket --** Completed. Implemeted in share.js
-* **JavaScript support for your application's interaction logic --**
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --** Completed.
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** Completed. Feb 24 - 5 commits, Feb 25 - 1 commit, Feb 26 - 4 commits, Feb 27 - 7 commits, Feb 28 - 8 commits, Feb 29 - 2 commits, Mar 1 - 6 commits, Mar 2 - 2 commits.
+* **JavaScript support for future login --** Completed. Placeholder in login.js
+* **JavaScript support for future database data --** Completed. Placeholders in login.js, favorites.js, and share.js
+* **JavaScript support for future WebSocket --** Completed. Placeholder in share.js
+* **JavaScript support for your application's interaction logic --** Completed. Application can generate and favorite prompts, and the interaction logic for sharing prompts is supported by JavaScript. 
