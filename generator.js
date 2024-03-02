@@ -294,9 +294,6 @@ function addRandomWords(bank, topic, number) {
 }
 
 function share() {
-    const currentPrompt = document.querySelector("#displayPrompt");
-    localStorage.removeItem("currentPrompt");
-    localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
     window.location.href = "share.html";
 }
 

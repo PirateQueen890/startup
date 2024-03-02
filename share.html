@@ -13,7 +13,7 @@
     <script src="share.js"></script>
 </head>
 
-<body>
+<body onload="loadPage()">
   <header class="container-fluid">
     <nav class="navbar fixed-top navbar-dark">
       <a class="navbar-brand" href="#">Writing Prompts<sup>&reg;</sup></a>
@@ -65,10 +65,10 @@
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="card" id="cardDisplayReceivedPrompt">
+            <div class="card" id="cardDisplayCurrentPrompt">
               <div class="card-body">
-                <h2 class="card-title">Received Prompt</h2>
-                <p id="displaySave">Click a received prompt to see it!</p>
+                <h2 class="card-title">Current Prompt</h2>
+                <p id="displayCurrentPrompt">Click a received prompt to see it!</p>
                 <div id="favButtonDiv">
                     <button class="btn btn-primary" id="buttonFavShare">Favorite</button>
                 </div>

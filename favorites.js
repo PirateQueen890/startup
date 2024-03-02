@@ -1,5 +1,7 @@
 let saves = [];
 let currentSave;
+let text;
+let promptType;
 
 function favorites() {
     const save1 = document.getElementById("save1");
@@ -14,32 +16,38 @@ function favorites() {
 
     
     if (saves[0].prompt != "") {
-        save1.textContent = saves[0].type;
+        promptType = saves[0].type;
+        save1.textContent = promptType;
         save1.disabled = false;
     }
 
     if (saves[1].prompt != "") {
-        save2.textContent = saves[1].type;
+        promptType = saves[1].type;
+        save2.textContent = promptType;
         save2.disabled = false;
     }
 
     if (saves[2].prompt != "") {
-        save3.textContent = saves[2].type;
+        promptType = saves[2].type;
+        save3.textContent = promptType;
         save3.disabled = false;
     }
 
     if (saves[3].prompt != "") {
-        save4.textContent = saves[3].type;
+        promptType = saves[3].type;
+        save4.textContent = promptType;
         save4.disabled = false;
     }
 
     if (saves[4].prompt != "") {
-        save5.textContent = saves[4].type;
+        promptType = saves[4].type;
+        save5.textContent = promptType;
         save5.disabled = false;
     }
 
     if (saves[5].prompt != "") {
-        save6.textContent = saves[5].type;
+        promptType = saves[5].type;
+        save6.textContent = promptType;
         save6.disabled = false;
     }
     
@@ -51,24 +59,29 @@ function displaySave(buttonId) {
     currentSave = document.getElementById(buttonId);
 
     if (buttonId === "save1") {
-        document.querySelector("#displaySave").innerHTML = saves[0].prompt;
+        text = saves[0].prompt;
     } else if (buttonId === "save2") {
-        document.querySelector("#displaySave").innerHTML = saves[1].prompt;
+        text = saves[1].prompt;
     } else if (buttonId === "save3") {
-        document.querySelector("#displaySave").innerHTML = saves[2].prompt;
+        text = saves[2].prompt;
     } else if (buttonId === "save4") {
-        document.querySelector("#displaySave").innerHTML = saves[3].prompt;
+        text = saves[3].prompt;
     } else if (buttonId === "save5") {
-        document.querySelector("#displaySave").innerHTML = saves[4].prompt;
+        text = saves[4].prompt;
     } else if (buttonId === "save6") {
-        document.querySelector("#displaySave").innerHTML = saves[5].prompt;
+        text = saves[5].prompt;
     }
+
+    document.querySelector("#displaySave").innerHTML = text;
 }
 
 function share() {
-    const currentPrompt = document.querySelector("#displayPrompt");
+    const sharePrompt = [{type: "", prompt: ""}];
+    sharePrompt[0].type = promptType;
+    sharePrompt[0].prompt = text;
+
     localStorage.removeItem("currentPrompt");
-    localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
+    localStorage.setItem("currentPrompt", JSON.stringify(sharePrompt));
     window.location.href = "share.html";
 }
 
