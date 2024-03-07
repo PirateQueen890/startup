@@ -90,8 +90,11 @@ const themes = ["A Fall From Grace", "A Quest for Knowledge", "Addiction", "Alie
 "Superstitions: Bad Luck", "Superstitions: Good Luck", "Survival", "Teamwork", "Technology", "Tradition", "Transformation", "Trust", 
 "Truth", "Unity", "Vanity", "Vice", "Violence", "Virtue", "Vulnerability", "War", "Wealth"]
 
-const colors = ["Black", "Grey", "Red", "Blue", "Orange", "White", "Brown", "Pink", "Yellow", "Green", "Purple", "Maroon", "Turquoise", 
-"Cyan", "Navy", "Blue", "Gold", "Teal", "Lime", "Cyan", "Aqua", "Violet", "Chocolate", "Azure", "Sİlver", "Bronze", "Hazel"]
+const colors = ["Grey", "Red", "Navy", "Lime", "Aqua", "Violet", "Chocolate", "Hazel", "Red", "Blue", "Green", "Yellow", "Orange", 
+"Purple", "Pink", "Brown", "Gray", "Black", "White", "Turquoise", "Lavender", "Indigo", "Magenta", "Maroon", "Cyan", "Beige", "Teal", 
+"Gold", "Silver", "Bronze", "Coral", "Olive", "Plum", "Salmon", "Sky blue", "Mint green", "Ruby", "Sapphire", "Emerald", "Amber", 
+"Ivory", "Charcoal", "Mauve", "Tangerine", "Peach", "Slate", "Burgundy", "Rose", "Cinnamon", "Periwinkle", "Mahogany", "Turmeric", 
+"Lilac", "Azure", "Russet", "Topaz", "Orchid"]
 
 const topicFantasy = ["Adventure", "Alchemy", "Amulet", "Ancient", "Angel", "Armies", "Armor", "Arrow", "Awaken", "Axe", "Barbarian", 
 "Battle", "Beast", "Bewitch", "Bishop", "Blessed", "Blood", "Bones", "Brave", "Breathtaking", "Captivate", "Castle", "Cauldron", "Cave", 
@@ -142,7 +145,17 @@ const topicWar = ["Abandon", "Acid", "Action", "Advance", "Aerial", "Afloat", "A
 const topicRomance = ["Heart", "Love", "Family", "Pink", "Red", "Hate", "Distance", "Difficult", "Vulnerable", "Relationship", "Lover", 
 "Partner", "Child", "Baby", "Sweetheart", "Dear", "Dearest", "Adore", "Passion", "Devotion", "Attachment", "Care", "Appreciate", 
 "Backstabbing", "Cherish", "Intimate", "Compassion", "Enchanting", "Exciting", "Date", "Dating", "Court", "Courtship", "Fiancée", 
-"Engaged", "Engagement", "Wedding", "Marriage", "Fling", "Flirtation", "Flirt", "Intrigue", "Flower", "Couple"]
+"Engaged", "Engagement", "Wedding", "Marriage", "Fling", "Flirtation", "Flirt", "Intrigue", "Flower", "Couple", "Affection", "Intimacy", 
+"Desire", "Attraction", "Connection", "Chemistry", "Romance", "Fondness", "Tenderness", "Sentiment", "Embrace", "Companionship", 
+"Infatuation", "Crush", "Wooing", "Adoration", "Soulmate", "Cuddle", "Kissing", "Hug", "Whisper", "Butterfly", "Candlelight", "Roses", 
+"Chocolates", "Gaze", "Enchantment", "Spark", "Magic", "Flattery", "Serenade", "Dream", "Courtly", "Elation", "Longing", "Yearning", 
+"Blush", "Smitten", "Passionate", "Romantic", "Cupid", "Heartbeat", "Woo", "Proposal", "Marry", "Holding hands", "Heartfelt", 
+"Lovestruck", "Whispers", "Starry-eyed", "Moonlight", "Admiration", "Pining", "Secret", "Admirer", "Amorous", "Lovers", "Warmth", 
+"Heartwarming", "Fantasy", "Tender", "Sweet", "Cozy", "Pheromones", "Pillow", "Sentimental", "Candlelit", "Falling", "Getaway", 
+"Endearment", "Story", "Emotion", "Mutual", "Sweethearts", "Touch", "Allure", "Endearing", "Harmonious", "Heartthrob", "Chivalry", 
+"Infatuated", "Rendezvous", "Inamorato", "Fond", "Memories", "Star-crossed", "Magnetic", "Admirable", "Enamor", "Amour", "Luring", 
+"Melting", "Flirtatious", "Honeymoon", "Whisked", "Lush", "Coquetry", "Charming", "Entrancing", "Dreamy", "Bliss", "Affair", "Utterance", 
+"Enraptured", "Charmed", "Softness", "Giddy", "Euphoria", "Swoon", "Captivation", "Suitor"]
 
 const topicFamily = ["Parents", "Children", "Siblings", "Grandparents", "Cousins", "Aunts", "Uncles", "Nieces", "Nephews", "In-laws", 
 "Spouse", "Marriage", "Tree", "Lineage", "Ancestors", "Descendants", "Generation", "Foster", "Adoption", "Stepfamily", "Extended", 
@@ -162,11 +175,22 @@ const topicFamily = ["Parents", "Children", "Siblings", "Grandparents", "Cousins
 "Adopt", "Raise", "Hate", "Strained", "Strain", "House", "Relative", "Pregnant", "Picnic", "Ancestor", "Folk", "Holidays", "Elder", 
 "Younger", "Little", "Big", "Baby", "Infant", "Kid"]
 
-const topicSupernatural = ["Demon", "Psychic", "Magic", "Metaphysical", "Angel", "Miraculous", "Mystic", "Occult", "Devil", 
-"Preternatural", "Deity", "Fairy", "Heavenly", "Superhuman", "Banshee", "Exorcism", "Extrasensory", "Ghoul", "Goblin", "Marvelous", 
-"Otherworldly", "Paranormal", "Supernormal", "Apparition", "Ghost", "Graveyard", "Haunted", "Angel", "Alien", "Machine", "Zombie", 
-"Shaman", "Medicine", "Herbs", "Divine", "Mystery", "Mysterious", "Boogeyman", "Eerie", "Superstitious", "Superstition", "Religion", 
-"Religious", "Werewolf", "Vampire", "Monster", "Legend", "Folklore", "Death", "Spirit"]
+const topicSupernatural = ["Demon", "Psychic", "Magic", "Metaphysical", "Miraculous", "Mystic", "Occult", "Devil", "Deity", "Fairy", 
+"Heavenly", "Superhuman", "Banshee", "Exorcism", "Supernatural", "Extrasensory", "Ghoul", "Goblin", "Marvelous", "Otherworldly", 
+"Paranormal", "Supernormal", "Apparition", "Ghost", "Graveyard", "Haunted", "Angel", "Alien", "Machine", "Zombie", "Shaman", "Medicine", 
+"Herbs", "Divine", "Mystery", "Mysterious", "Boogeyman", "Eerie", "Superstitious", "Superstition", "Religion", "Religious", "Werewolf", 
+"Vampire", "Monster", "Legend", "Folklore", "Death", "Haunting", "Specter", "Phantom", "Poltergeist", "Wraith", "Unearthly", "Ectoplasm",
+"Beings", "Spectral", "Seance", "Clairvoyant", "Medium", "Enigma", "Spooky", "Cursed", "Hex", "Curse", "Hexed", "Possession", 
+"Witchcraft", "Wizardry", "Sorcery", "Enchantment", "Mystical", "Arcane", "Powers", "Spell", "Ritual", "Necromancy", "Alchemy", 
+"Sorcerer", "Witch", "Warlock", "Shape-shifter", "Changeling", "Coven", "Black", "White", "Forbidden", "Taboo", "Occultism", 
+"Mysticism", "Activity", "Phenomena", "Telekinesis", "Telepathy", "Astral", "Projection", "Anomaly", "Uncanny", "Occurrence", "House", 
+"Spiritual", "Intervention", "Guardian", "Celestial", "Fate", "Destiny", "Prophecy", "Oracle", "Guidance", "Afterlife", "Reincarnation", 
+"Karma", "Mythical", "Mythology", "Enchanted", "Mystifying", "Chills", "Realm", "Dimension", "Portals", "Time", "Warp", 
+"Extraterrestrial", "Abduction", "UFO", "Conspiracy", "Cryptid", "Bigfoot", "Yeti", "Chupacabra", "Mothman", "Triange", "Limb", 
+"Deja vu", "Sixth", "Sense", "Premonition", "Forest", "Possessed", "Malediction", "Magical", "Creature", "Pagan", "Druid", "Enigmatic", 
+"Mysterioso", "Bewitched", "Seer", "Spontaneous", "Combustion", "Unexplained", "Shadow", "People", "Parallel", "Universe", "Portents", 
+"Phenomenon", "Ectoplasma", "Omen", "Artifact", "Phantasmagorical", "Abnormal", "Dark", "Energy", "Voodoo", "Invocation", "Purgatory", 
+"Crystal ball", "Runes", "Symbols", "Cat", "Full", "Moon", "Half"]
 
 let currentPrompt;
 let newPrompt = "";
