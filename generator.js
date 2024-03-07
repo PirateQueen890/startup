@@ -186,7 +186,7 @@ const topicSupernatural = ["Demon", "Psychic", "Magic", "Metaphysical", "Miracul
 "Mysticism", "Activity", "Phenomena", "Telekinesis", "Telepathy", "Astral", "Projection", "Anomaly", "Uncanny", "Occurrence", "House", 
 "Spiritual", "Intervention", "Guardian", "Celestial", "Fate", "Destiny", "Prophecy", "Oracle", "Guidance", "Afterlife", "Reincarnation", 
 "Karma", "Mythical", "Mythology", "Enchanted", "Mystifying", "Chills", "Realm", "Dimension", "Portals", "Time", "Warp", 
-"Extraterrestrial", "Abduction", "UFO", "Conspiracy", "Cryptid", "Bigfoot", "Yeti", "Chupacabra", "Mothman", "Triange", "Limb", 
+"Extraterrestrial", "Abduction", "UFO", "Conspiracy", "Cryptid", "Bigfoot", "Yeti", "Chupacabra", "Mothman", "Triangle", "Limb", 
 "Deja vu", "Sixth", "Sense", "Premonition", "Forest", "Possessed", "Malediction", "Magical", "Creature", "Pagan", "Druid", "Enigmatic", 
 "Mysterioso", "Bewitched", "Seer", "Spontaneous", "Combustion", "Unexplained", "Shadow", "People", "Parallel", "Universe", "Portents", 
 "Phenomenon", "Ectoplasma", "Omen", "Artifact", "Phantasmagorical", "Abnormal", "Dark", "Energy", "Voodoo", "Invocation", "Purgatory", 
@@ -305,8 +305,8 @@ function generateCharacter(topics) {
     //In the future, this will be an API call to colormind.io to get a random color palette
     const randomColor = colors[getRandomInt(0, colors.length - 1)];
 
-    newPrompt = "Motivation: " + randomMotivation + "<br> Flaw: " + randomFlaw + "<br> Strength: " + randomStrength + "<br> Talent: " 
-    + randomTalent + "<br> Color: " + randomColor;
+    newPrompt = "<b>Motivation: </b>" + randomMotivation + "<br> <b>Flaw: </b>" + randomFlaw + "<br> <b>Strength: </b>" 
+    + randomStrength + "<br> <b>Talent: </b>" + randomTalent + "<br> <b>Color: </b>" + randomColor;
 
     document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
@@ -316,7 +316,7 @@ function generateScenario(topics) {
     const randomConflict = conflicts[getRandomInt(0, conflicts.length - 1)];
     const randomTheme = themes[getRandomInt(0, themes.length - 1)];
 
-    newPrompt = "Setting: " + randomSetting + boldString("<br> Conflict: ") + randomConflict + boldString("<br> Theme: ") + randomTheme;
+    newPrompt = "<b>Setting: </b>" + randomSetting + "<br> <b>Conflict: </b>" + randomConflict + "<br> <b>Theme: </b>" + randomTheme;
 
     document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
