@@ -144,11 +144,23 @@ const topicRomance = ["Heart", "Love", "Family", "Pink", "Red", "Hate", "Distanc
 "Backstabbing", "Cherish", "Intimate", "Compassion", "Enchanting", "Exciting", "Date", "Dating", "Court", "Courtship", "Fiancée", 
 "Engaged", "Engagement", "Wedding", "Marriage", "Fling", "Flirtation", "Flirt", "Intrigue", "Flower", "Couple"]
 
-const topicFamily = ["Mother", "Father", "Brother", "Sister", "Uncle", "Aunt", "Grandfather", "Grandmother", "Cousin", "Step-brother", 
-"Step-sister", "Step-mother", "Step-father", "Half-brother", "Half-sister", "Family", "Dinner", "Trip", "Sibling", "Parent", "Death", 
-"Birth", "Marriage", "Children", "Child", "Son", "Daughter", "Wife", "Husband", "Partner", "Niece", "Nephew", "Adopt", "Adoption", 
-"Raise", "Love", "Hate", "Strained", "Relationship", "House", "Home", "Relative", "Pregnant", "Picnic", "Ancestor", "Folk", "Kinship", 
-"Clan", "Lineage", "Holidays", "Respect", "Elder", "Younger"]
+const topicFamily = ["Parents", "Children", "Siblings", "Grandparents", "Cousins", "Aunts", "Uncles", "Nieces", "Nephews", "In-laws", 
+"Spouse", "Marriage", "Tree", "Lineage", "Ancestors", "Descendants", "Generation", "Foster", "Adoption", "Stepfamily", "Extended", 
+"Relatives", "Kin", "Brothers", "Brother", "Sister", "Sisters", "Father", "Mother", "Son", "Daughter", "Grandchildren", 
+"Great-grandparents", "Great-grandchildren", "Love", "Bond", "Relationship", "Unity", "Connection", "Home", "Traditions", "Heritage", 
+"Responsibility", "Upbringing", "Respect", "Understanding", "Communication", "Harmony", "Generations", "Legacy", "Bloodline", "Name", 
+"Crest", "Clan", "Tribe", "Dynasty", "Progeny", "History", "Memories", "Sharing", "Caring", "Togetherness", "Hug", "Kiss", "Affection", 
+"Nurturing", "Protection", "Support", "Safe haven", "Dependence", "Independence", "Interdependence", "Parenting", "Guidance", 
+"Discipline", "Education", "Growth", "Milestones", "Achievements", "Challenges", "Sacrifice", "Blessings", "Celebrations", "Values", 
+"Resilience", "Gratitude", "Empathy", "Acceptance", "Cooperation", "Loyalty", "Trust", "Commitment", "Teamwork", "Patience", 
+"Compassion", "Sincerity", "Devotion", "Encouragement", "Flexibility", "Adaptability", "Ties", "Bonds", "Blood-ties", "Intimacy", 
+"Affinity", "Warmth", "Security", "Shelter", "Nourishment", "Laughter", "Joy", "Happiness", "Comfort", "Supportive", "Encouraging", 
+"Connected", "Unconditional", "Kinship", "Fellowship", "Roots", "Family rituals", "Customs", "Routines", "Stories", "Folklore", 
+"Anecdotes", "Nostalgia", "Reunion", "Circle", "Team", "Conflict resolution", "Collaboration", "Negotiation", "Compromise", "Life", 
+"Uncle", "Aunt", "Grandfather", "Grandmother", "Cousin", "Step-brother", "Step-sister", "Step-mother", "Step-father", "Half-brother", 
+"Half-sister", "Dinner", "Trip", "Sibling", "Parent", "Death", "Birth", "Child", "Wife", "Husband", "Partner", "Niece", "Nephew", 
+"Adopt", "Raise", "Hate", "Strained", "Strain", "House", "Relative", "Pregnant", "Picnic", "Ancestor", "Folk", "Holidays", "Elder", 
+"Younger", "Little", "Big", "Baby", "Infant", "Kid"]
 
 const topicSupernatural = ["Demon", "Psychic", "Magic", "Metaphysical", "Angel", "Miraculous", "Mystic", "Occult", "Devil", 
 "Preternatural", "Deity", "Fairy", "Heavenly", "Superhuman", "Banshee", "Exorcism", "Extrasensory", "Ghoul", "Goblin", "Marvelous", 
@@ -251,7 +263,9 @@ function generateFusion(topics) {
         fusions.push(fusion);
     }
 
-    for (i = 0; i < fusions.length; ++i) {
+    newPrompt = fusions[0];
+
+    for (i = 1; i < fusions.length; ++i) {
         newPrompt = newPrompt + "<br>" + fusions[i];
     }
 
@@ -278,7 +292,7 @@ function generateScenario(topics) {
     const randomConflict = conflicts[getRandomInt(0, conflicts.length - 1)];
     const randomTheme = themes[getRandomInt(0, themes.length - 1)];
 
-    newPrompt = "Setting: " + randomSetting + "<br> Conflict: " + randomConflict + "<br> Theme: " + randomTheme;
+    newPrompt = "Setting: " + randomSetting + boldString("<br> Conflict: ") + randomConflict + boldString("<br> Theme: ") + randomTheme;
 
     document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
