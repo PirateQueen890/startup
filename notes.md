@@ -99,10 +99,10 @@ GitHub is awesome and a fun time. Had a hard time figuring out VS Code and git, 
 - ending with **i** means not case sensitive
 
 ## Node
--Create your project directory
--Initialize it for use with NPM by running npm init -y
--Make sure .gitignore file contains node_modules
--Install any desired packages with npm install <package name here>
--Add require('<package name here>') to your application's JavaScript
--Use the code the package provides in your JavaScript
--Run your code with node index.js
+- Create your project directory
+- Initialize it for use with NPM by running npm init -y
+- Make sure .gitignore file contains node_modules
+- Install any desired packages with npm install <package name here>
+- Add require('<package name here>') to your application's JavaScript
+- Use the code the package provides in your JavaScript
+- Run your code with node index.js
