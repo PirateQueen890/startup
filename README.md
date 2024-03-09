@@ -59,3 +59,15 @@ For this deliverable, I added functionailty to my website using JavaScript. This
 * **JavaScript support for future database data --** Completed. Placeholders in login.js, favorites.js, and share.js
 * **JavaScript support for future WebSocket --** Completed. Placeholder in share.js
 * **JavaScript support for your application's interaction logic --** Completed. Application can generate and favorite prompts, and the interaction logic for sharing prompts is supported by JavaScript. 
+
+## Service Deliverable
+
+* **Prerequisite: Simon Service deployed to your production environment --** Completed. Use simon subdomain to access.
+* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer on each page.
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --**
+* **Create an HTTP service using Node.js and Express --**
+* **Frontend served up using Express static middleware --**
+* **Your frontend calls third party service endpoints --**
+* **Your backend provides service endpoints --**
+* **Your frontend calls your service endpoints --**
