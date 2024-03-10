@@ -14,6 +14,29 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+// GetFavorites
+apiRouter.get('/favorites', (_req, res) => {
+    res.send(favorites);
+});
+
+// SubmitFavorites
+apiRouter.post('/favorite', (req, res) => {
+    //favorites = updateFavorites(req.body, scores);
+    res.send(favorites);
+});
+
+// GetReceives
+apiRouter.get('/receives', (_req, res) => {
+  res.send(received);
+});
+
+// SubmitReceived
+apiRouter.post('/received', (req, res) => {
+  //scores = updateReceived(req.body, scores);
+  res.send(received);
+});
+
+
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
