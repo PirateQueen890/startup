@@ -349,8 +349,7 @@ function favorite() {
             saves[i].owner = currentPrompt[0].owner;
             saves[i].type = currentPrompt[0].type;
             saves[i].prompt = currentPrompt[0].prompt;
-            localStorage.removeItem("favorites");
-            localStorage.setItem("favorites", JSON.stringify(saves));
+            saveFavorite(saves);
             found = true;
             break;
         }
@@ -364,5 +363,20 @@ function favorite() {
     } else {
         message = currentPrompt[0].prompt + "<br> FAILED: No space. Delete a favorited prompt and try again.";
         document.querySelector("#displayPrompt").innerHTML=message;
+    }
+}
+
+async function saveFavorite(saves) {
+    localStorage.removeItem("favorites");
+    localStorage.setItem("favorites", JSON.stringify(saves));
+
+    try {
+      const response = await fetch('/api/favorite', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(saves),
+      });
+    } catch {
+        console.log("Error: Failed to save favorites in database.");
     }
 }
