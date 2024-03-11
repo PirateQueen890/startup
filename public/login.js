@@ -9,15 +9,7 @@ function login() {
     localStorage.setItem("username", JSON.stringify(currentUsername.value));
 
     //If there is a username, load favorites from database
-    let favorites = [
-        { id: "save1", owner: "ThePumpkinKing", type: "Fusion", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
-        { id: "save2", owner: "YilingPatriarch", type: "Character", prompt: "Motivation: Justice <br> Flaw: Whiny <br> Strength: Philosophical <br> Talent: Public Speaking <br> Color: Aqua" },
-        { id: "save3", owner: "ThePumpkinKing", type: "Situation", prompt: "Setting: Movie Theatre <br> Conflict: Character vs. Self <br> Theme: Trust" },
-        { id: "save4", owner: "", type: "", prompt: "" },
-        { id: "save5", owner: "", type: "", prompt: "" },
-        { id: "save6", owner: "", type: "", prompt: "" },
-    ];
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    loadFavorites();
 
     //Load any received prompt from the database
     let received = [
@@ -35,3 +27,24 @@ function login() {
 
     window.location.href = "generator.html";
 }
+
+async function loadFavorites() {
+    let favorites = [];
+
+    try {
+      const response = await fetch("/api/favorites");
+      favorites = await response.json();
+    } catch {
+        let favorites = [
+            { id: "save1", owner: "ThePumpkinKing", type: "Fusion", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
+            { id: "save2", owner: "YilingPatriarch", type: "Character", prompt: "Motivation: Justice <br> Flaw: Whiny <br> Strength: Philosophical <br> Talent: Public Speaking <br> Color: Aqua" },
+            { id: "save3", owner: "ThePumpkinKing", type: "Situation", prompt: "Setting: Movie Theatre <br> Conflict: Character vs. Self <br> Theme: Trust" },
+            { id: "save4", owner: "", type: "", prompt: "" },
+            { id: "save5", owner: "", type: "", prompt: "" },
+            { id: "save6", owner: "", type: "", prompt: "" },
+        ];
+    }
+  
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
