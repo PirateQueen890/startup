@@ -349,7 +349,7 @@ function favorite() {
             saves[i].owner = currentPrompt[0].owner;
             saves[i].type = currentPrompt[0].type;
             saves[i].prompt = currentPrompt[0].prompt;
-            saveFavorite(saves);
+            saveFavorites(saves);
             found = true;
             break;
         }
@@ -366,7 +366,8 @@ function favorite() {
     }
 }
 
-async function saveFavorite(saves) {
+//Save in localStorage and database
+async function saveFavorites(saves) {
     localStorage.removeItem("favorites");
     localStorage.setItem("favorites", JSON.stringify(saves));
 

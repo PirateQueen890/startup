@@ -116,9 +116,24 @@ function deletePrompt() {
         saves[5].prompt = "";
     }
 
-    localStorage.removeItem("favorites");
-    localStorage.setItem("favorites", JSON.stringify(saves));
+    saveFavorites(saves);
 
     currentSave.disabled = true;
     currentSave.textContent = "[Empty]";
+}
+
+//Save in localStorage and database
+async function saveFavorites(saves) {
+    localStorage.removeItem("favorites");
+    localStorage.setItem("favorites", JSON.stringify(saves));
+
+    try {
+      const response = await fetch('/api/favorite', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(saves),
+      });
+    } catch {
+        console.log("Error: Failed to save favorites in database.");
+    }
 }
