@@ -14,6 +14,9 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+let favorites;
+let received;
+
 // GetFavorites
 apiRouter.get('/favorites', (_req, res) => {
     //grab from database
@@ -27,9 +30,6 @@ apiRouter.get('/favorites', (_req, res) => {
     ];
     res.send(favorites);
 });
-
-let favorites;
-let received;
 
 // SubmitFavorites
 apiRouter.post('/favorite', (req, res) => {
