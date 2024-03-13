@@ -28,9 +28,9 @@ async function loadFavorites() {
       favorites = await response.json();
     } catch {
         favorites = [
-            { id: "save1", owner: "ThePumpkinKing", type: "Fusion", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
-            { id: "save2", owner: "YilingPatriarch", type: "Character", prompt: "Motivation: Justice <br> Flaw: Whiny <br> Strength: Philosophical <br> Talent: Public Speaking <br> Color: Aqua" },
-            { id: "save3", owner: "ThePumpkinKing", type: "Situation", prompt: "Setting: Movie Theatre <br> Conflict: Character vs. Self <br> Theme: Trust" },
+            { id: "save1", owner: "", type: "", prompt: "" },
+            { id: "save2", owner: "", type: "", prompt: "" },
+            { id: "save3", owner: "", type: "", prompt: "" },
             { id: "save4", owner: "", type: "", prompt: "" },
             { id: "save5", owner: "", type: "", prompt: "" },
             { id: "save6", owner: "", type: "", prompt: "" },
@@ -48,7 +48,7 @@ async function loadReceived() {
       received = await response.json();
     } catch {
         received = [
-            { id: "received1", owner: "ThePumpkinKing", type: "Fusion", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
+            { id: "received1", owner: "", type: "", prompt: "" },
             { id: "received2", owner: "", type: "", prompt: "" },
             { id: "received3", owner: "", type: "", prompt: "" },
             { id: "received4", owner: "", type: "", prompt: "" },

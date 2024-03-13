@@ -335,6 +335,10 @@ function addRandomWords(bank, topic, number) {
     return bank;
 }
 
+function getRandomPalette() {
+    
+}
+
 function share() {
     window.location.href = "share.html";
 }
