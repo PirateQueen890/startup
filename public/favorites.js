@@ -1,5 +1,6 @@
 let saves = [];
 let currentSave;
+let colors;
 let text;
 let promptType;
 
@@ -13,7 +14,6 @@ function favorites() {
 
     saves = localStorage.getItem("favorites");
     saves = JSON.parse(saves);
-
     
     if (saves[0].prompt != "") {
         promptType = saves[0].type;
@@ -60,19 +60,35 @@ function displaySave(buttonId) {
 
     if (buttonId === "save1") {
         text = saves[0].prompt;
+        colors = saves[0].colors;
     } else if (buttonId === "save2") {
         text = saves[1].prompt;
+        colors = saves[1].colors;
     } else if (buttonId === "save3") {
         text = saves[2].prompt;
+        colors = saves[2].colors;
     } else if (buttonId === "save4") {
         text = saves[3].prompt;
+        colors = saves[3].colors;
     } else if (buttonId === "save5") {
         text = saves[4].prompt;
+        colors = saves[4].colors;
     } else if (buttonId === "save6") {
         text = saves[5].prompt;
+        colors = saves[5].colors;
     }
 
+    setColors(0);
     document.querySelector("#displaySave").innerHTML = text;
+}
+
+function setColors(num) {
+    if (num < colors.length) {
+        let field = "color" + (num + 1);
+        document.getElementById(field).style.color = "rgb(" + colors[num] + ")";
+        document.getElementById(field).style.backgroundColor = "rgb(" + colors[num] + ")";
+        setColors(++num, colors);
+    }
 }
 
 function share() {
