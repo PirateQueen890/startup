@@ -345,10 +345,23 @@ function addRandomWords(bank, topic, number) {
     return bank;
 }
 
-function getRandomPalette() {
-    let colors = [[50,50,41],[78,132,138],[180,183,157],[229,239,229],[196,134,136]];
+async function getRandomPalette() {
+    let colors;
+
+    try {
+        const response = await fetch("http://colormind.io/api/", {
+          method: 'POST',
+          //headers: {"content-type": "application/json"},
+          body: JSON.stringify({"model": "default"}),
+        });
+        colors = await response.json();
+        colors = colors.result;
+    } catch {
+        console.log("Error: Failed to fetch random palette.");
+        colors = [[50,50,41],[78,132,138],[180,183,157],[229,239,229],[196,134,136]]; 
+    }
+
     colorChanged = true;
-    
     setColors(0, colors);
 }
 
