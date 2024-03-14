@@ -194,6 +194,7 @@ const topicSupernatural = ["Demon", "Psychic", "Magic", "Metaphysical", "Miracul
 
 let currentPrompt;
 let newPrompt = "";
+let colorChanged = false;
 
 function loadDisplay() {
     currentPrompt = localStorage.getItem("currentPrompt");
@@ -259,6 +260,10 @@ function generate() {
 function generateFusion(topics) {
     let bank = [];
 
+    if (colorChanged == true) {
+        setColors(0, [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]]);
+    }
+
     for (i = 0; i < topics.length; ++i) {
         if (topics[i] === "optionFantasy") {
             addRandomWords(bank, topicFantasy, 15);
@@ -304,6 +309,7 @@ function generateCharacter(topics) {
 
     //In the future, this will be an API call to colormind.io to get a random color palette
     const randomColor = colors[getRandomInt(0, colors.length - 1)];
+    getRandomPalette();
 
     newPrompt = "<b>Motivation: </b>" + randomMotivation + "<br> <b>Flaw: </b>" + randomFlaw + "<br> <b>Strength: </b>" 
     + randomStrength + "<br> <b>Talent: </b>" + randomTalent + "<br> <b>Color: </b>" + randomColor;
@@ -312,6 +318,10 @@ function generateCharacter(topics) {
 }
 
 function generateScenario(topics) {
+    if (colorChanged == true) {
+        setColors(0, [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]]);
+    }
+
     const randomSetting = settings[getRandomInt(0, settings.length - 1)];
     const randomConflict = conflicts[getRandomInt(0, conflicts.length - 1)];
     const randomTheme = themes[getRandomInt(0, themes.length - 1)];
@@ -336,7 +346,19 @@ function addRandomWords(bank, topic, number) {
 }
 
 function getRandomPalette() {
+    let colors = [[50,50,41],[78,132,138],[180,183,157],[229,239,229],[196,134,136]];
+    colorChanged = true;
     
+    setColors(0, colors);
+}
+
+function setColors(num, colors) {
+    if (num < colors.length) {
+        let field = "color" + (num + 1);
+        document.getElementById(field).style.color = "rgb(" + colors[num] + ")";
+        document.getElementById(field).style.backgroundColor = "rgb(" + colors[num] + ")";
+        setColors(++num, colors);
+    }
 }
 
 function share() {
