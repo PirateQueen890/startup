@@ -90,12 +90,6 @@ const themes = ["A Fall From Grace", "A Quest for Knowledge", "Addiction", "Alie
 "Superstitions: Bad Luck", "Superstitions: Good Luck", "Survival", "Teamwork", "Technology", "Tradition", "Transformation", "Trust", 
 "Truth", "Unity", "Vanity", "Vice", "Violence", "Virtue", "Vulnerability", "War", "Wealth"]
 
-const colors = ["Grey", "Red", "Navy", "Lime", "Aqua", "Violet", "Chocolate", "Hazel", "Red", "Blue", "Green", "Yellow", "Orange", 
-"Purple", "Pink", "Brown", "Gray", "Black", "White", "Turquoise", "Lavender", "Indigo", "Magenta", "Maroon", "Cyan", "Beige", "Teal", 
-"Gold", "Silver", "Bronze", "Coral", "Olive", "Plum", "Salmon", "Sky blue", "Mint green", "Ruby", "Sapphire", "Emerald", "Amber", 
-"Ivory", "Charcoal", "Mauve", "Tangerine", "Peach", "Slate", "Burgundy", "Rose", "Cinnamon", "Periwinkle", "Mahogany", "Turmeric", 
-"Lilac", "Azure", "Russet", "Topaz", "Orchid"]
-
 const topicFantasy = ["Adventure", "Alchemy", "Amulet", "Ancient", "Angel", "Armies", "Armor", "Arrow", "Awaken", "Axe", "Barbarian", 
 "Battle", "Beast", "Bewitch", "Bishop", "Blessed", "Blood", "Bones", "Brave", "Breathtaking", "Captivate", "Castle", "Cauldron", "Cave", 
 "Centaur", "Chamber", "Chariot", "Charm", "Claws", "Cliff", "Combat", "Conjure", "Conspirator", "Conspiracy", "Creatures", "Creepy", 
@@ -194,7 +188,7 @@ const topicSupernatural = ["Demon", "Psychic", "Magic", "Metaphysical", "Miracul
 
 let currentPrompt;
 let newPrompt = "";
-let colorChanged = false;
+let colors;
 
 function loadDisplay() {
     currentPrompt = localStorage.getItem("currentPrompt");
@@ -252,6 +246,7 @@ function generate() {
     currentPrompt[0].owner = user;
     currentPrompt[0].prompt = newPrompt;
     currentPrompt[0].type = generationType;
+    currentPrompt[0].colors = colors;
     newPrompt = "";
     localStorage.removeItem("currentPrompt");
     localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
@@ -259,11 +254,8 @@ function generate() {
 
 function generateFusion(topics) {
     let bank = [];
-
-    if (colorChanged == true) {
-        setColors(0, [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]]);
-    }
-
+    colors = [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]];
+    
     for (i = 0; i < topics.length; ++i) {
         if (topics[i] === "optionFantasy") {
             addRandomWords(bank, topicFantasy, 15);
@@ -298,6 +290,7 @@ function generateFusion(topics) {
         newPrompt = newPrompt + "<br>" + fusions[i];
     }
 
+    setColors(0);
     document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
 
@@ -307,27 +300,23 @@ function generateCharacter(topics) {
     const randomStrength = strengths[getRandomInt(0, strengths.length - 1)];
     const randomTalent = talents[getRandomInt(0, talents.length - 1)];
 
-    //In the future, this will be an API call to colormind.io to get a random color palette
-    const randomColor = colors[getRandomInt(0, colors.length - 1)];
     getRandomPalette();
 
     newPrompt = "<b>Motivation: </b>" + randomMotivation + "<br> <b>Flaw: </b>" + randomFlaw + "<br> <b>Strength: </b>" 
-    + randomStrength + "<br> <b>Talent: </b>" + randomTalent + "<br> <b>Color: </b>" + randomColor;
+    + randomStrength + "<br> <b>Talent: </b>" + randomTalent;
 
     document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
 
 function generateScenario(topics) {
-    if (colorChanged == true) {
-        setColors(0, [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]]);
-    }
-
+    colors = [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]]
     const randomSetting = settings[getRandomInt(0, settings.length - 1)];
     const randomConflict = conflicts[getRandomInt(0, conflicts.length - 1)];
     const randomTheme = themes[getRandomInt(0, themes.length - 1)];
 
     newPrompt = "<b>Setting: </b>" + randomSetting + "<br> <b>Conflict: </b>" + randomConflict + "<br> <b>Theme: </b>" + randomTheme;
 
+    setColors(0);
     document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
 
@@ -346,8 +335,6 @@ function addRandomWords(bank, topic, number) {
 }
 
 async function getRandomPalette() {
-    let colors;
-
     try {
         const response = await fetch("http://colormind.io/api/", {
           method: 'POST',
@@ -356,16 +343,16 @@ async function getRandomPalette() {
         });
         colors = await response.json();
         colors = colors.result;
+        currentPrompt[0].colors = colors;
     } catch {
         console.log("Error: Failed to fetch random palette.");
         colors = [[50,50,41],[78,132,138],[180,183,157],[229,239,229],[196,134,136]]; 
     }
 
-    colorChanged = true;
-    setColors(0, colors);
+    setColors(0);
 }
 
-function setColors(num, colors) {
+function setColors(num) {
     if (num < colors.length) {
         let field = "color" + (num + 1);
         document.getElementById(field).style.color = "rgb(" + colors[num] + ")";
@@ -387,6 +374,7 @@ function favorite() {
         if (saves[i].prompt === "") {
             saves[i].owner = currentPrompt[0].owner;
             saves[i].type = currentPrompt[0].type;
+            saves[i].colors = currentPrompt[0].colors;
             saves[i].prompt = currentPrompt[0].prompt;
             saveFavorites(saves);
             found = true;

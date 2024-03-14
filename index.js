@@ -23,12 +23,12 @@ let received;
 apiRouter.get('/favorites', (_req, res) => {
     //grab from database
     favorites = [
-        { id: "save1", owner: "ThePumpkinKing", type: "Fusion", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
-        { id: "save2", owner: "YilingPatriarch", type: "Character", prompt: "Motivation: Justice <br> Flaw: Whiny <br> Strength: Philosophical <br> Talent: Public Speaking <br> Color: Aqua" },
-        { id: "save3", owner: "ThePumpkinKing", type: "Situation", prompt: "Setting: Movie Theatre <br> Conflict: Character vs. Self <br> Theme: Trust" },
-        { id: "save4", owner: "", type: "", prompt: "" },
-        { id: "save5", owner: "", type: "", prompt: "" },
-        { id: "save6", owner: "", type: "", prompt: "" },
+        { id: "save1", owner: "ThePumpkinKing", type: "Fusion", colors: "", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
+        { id: "save2", owner: "YilingPatriarch", type: "Character", colors: "[[35,32,32],[50,56,48],[172,137,128],[241,230,203],[74,230,226]]", prompt: "Motivation: Justice <br> Flaw: Whiny <br> Strength: Philosophical <br> Talent: Public Speaking" },
+        { id: "save3", owner: "ThePumpkinKing", type: "Situation", colors: "", prompt: "Setting: Movie Theatre <br> Conflict: Character vs. Self <br> Theme: Trust" },
+        { id: "save4", owner: "", type: "", colors: "", prompt: "" },
+        { id: "save5", owner: "", type: "", colors: "", prompt: "" },
+        { id: "save6", owner: "", type: "", colors: "", prompt: "" },
     ];
     res.send(favorites);
 });
@@ -44,12 +44,12 @@ apiRouter.post('/favorite', (req, res) => {
 apiRouter.get('/receives', (_req, res) => {
     //grab from database
     received = [
-        { id: "received1", owner: "ThePumpkinKing", type: "Fusion", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
-        { id: "received2", owner: "Marion900", type: "Character", prompt: "There's an awesome character here." },
-        { id: "received3", owner: "", type: "", prompt: "" },
-        { id: "received4", owner: "", type: "", prompt: "" },
-        { id: "received5", owner: "", type: "", prompt: "" },
-        { id: "received6", owner: "", type: "", prompt: "" },
+        { id: "received1", owner: "ThePumpkinKing", type: "Fusion", colors: "", prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
+        { id: "received2", owner: "Marion900", type: "Character", colors: "", prompt: "There's an awesome character here." },
+        { id: "received3", owner: "", type: "", colors: "", prompt: "" },
+        { id: "received4", owner: "", type: "", colors: "", prompt: "" },
+        { id: "received5", owner: "", type: "", colors: "", prompt: "" },
+        { id: "received6", owner: "", type: "", colors: "", prompt: "" },
     ];
     res.send(received);
 });

@@ -14,7 +14,7 @@ function login() {
     //Load any received prompt from the database
     loadReceived();
     
-    let currentPrompt = [{owner: "", type: "", prompt: "Click the Generate button to get a prompt!"}];
+    let currentPrompt = [{owner: "", type: "", colors: "", prompt: "Click the Generate button to get a prompt!"}];
     localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
 
     window.location.href = "generator.html";
@@ -28,12 +28,12 @@ async function loadFavorites() {
       favorites = await response.json();
     } catch {
         favorites = [
-            { id: "save1", owner: "", type: "", prompt: "" },
-            { id: "save2", owner: "", type: "", prompt: "" },
-            { id: "save3", owner: "", type: "", prompt: "" },
-            { id: "save4", owner: "", type: "", prompt: "" },
-            { id: "save5", owner: "", type: "", prompt: "" },
-            { id: "save6", owner: "", type: "", prompt: "" },
+            { id: "save1", owner: "", type: "", colors: "", prompt: "" },
+            { id: "save2", owner: "", type: "", colors: "", prompt: "" },
+            { id: "save3", owner: "", type: "", colors: "", prompt: "" },
+            { id: "save4", owner: "", type: "", colors: "", prompt: "" },
+            { id: "save5", owner: "", type: "", colors: "", prompt: "" },
+            { id: "save6", owner: "", type: "", colors: "", prompt: "" },
         ];
     }
   
@@ -48,12 +48,12 @@ async function loadReceived() {
       received = await response.json();
     } catch {
         received = [
-            { id: "received1", owner: "", type: "", prompt: "" },
-            { id: "received2", owner: "", type: "", prompt: "" },
-            { id: "received3", owner: "", type: "", prompt: "" },
-            { id: "received4", owner: "", type: "", prompt: "" },
-            { id: "received5", owner: "", type: "", prompt: "" },
-            { id: "received6", owner: "", type: "", prompt: "" },
+            { id: "received1", owner: "", type: "", colors: "", prompt: "" },
+            { id: "received2", owner: "", type: "", colors: "", prompt: "" },
+            { id: "received3", owner: "", type: "", colors: "", prompt: "" },
+            { id: "received4", owner: "", type: "", colors: "", prompt: "" },
+            { id: "received5", owner: "", type: "", colors: "", prompt: "" },
+            { id: "received6", owner: "", type: "", colors: "", prompt: "" },
         ];
     }
   
