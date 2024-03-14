@@ -194,6 +194,7 @@ function loadDisplay() {
     currentPrompt = localStorage.getItem("currentPrompt");
     currentPrompt = JSON.parse(currentPrompt);
 
+    setColors(0, currentPrompt[0].colors);
     document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt;
 }
 
@@ -362,6 +363,8 @@ function setColors(num) {
 }
 
 function share() {
+    localStorage.removeItem("currentPrompt");
+    localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
     window.location.href = "share.html";
 }
 

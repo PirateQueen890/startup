@@ -94,6 +94,7 @@ function setColors(num) {
 function share() {
     const sharePrompt = [{type: "", prompt: ""}];
     sharePrompt[0].type = promptType;
+    sharePrompt[0].colors = colors;
     sharePrompt[0].prompt = text;
 
     localStorage.removeItem("currentPrompt");

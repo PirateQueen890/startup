@@ -7,6 +7,7 @@ function loadPage() {
     currentPrompt = localStorage.getItem("currentPrompt");
     currentPrompt = JSON.parse(currentPrompt);
 
+    setColors(0, currentPrompt[0].colors);
     document.querySelector("#displayCurrentPrompt").innerHTML = currentPrompt[0].prompt;
 
     const received1 = document.getElementById("received1");
@@ -79,11 +80,22 @@ function displayReceived(buttonId) {
 
     document.querySelector("#displayCurrentPrompt").innerHTML = received[index].prompt;
 
-    currentPrompt = [{owner: "", type: "", prompt: ""}];
-
+    currentPrompt = [{owner: "", type: "", colors: "", prompt: ""}];
     currentPrompt[0].owner = received[index].owner;
     currentPrompt[0].type = received[index].type;
+    currentPrompt[0].colors = received[index].colors;
     currentPrompt[0].prompt = received[index].prompt;
+
+    setColors(0, currentPrompt[0].colors);
+}
+
+function setColors(num, colors) {
+    if (num < colors.length) {
+        let field = "color" + (num + 1);
+        document.getElementById(field).style.color = "rgb(" + colors[num] + ")";
+        document.getElementById(field).style.backgroundColor = "rgb(" + colors[num] + ")";
+        setColors(++num, colors);
+    }
 }
 
 function share() {
@@ -142,7 +154,7 @@ async function receive() {
 
 function findSpace() {
     //websocket placeholder
-    const receivePrompt = [{ owner: "Marian1010", type: "Fusion", prompt: "This is an example prompt: Peace Machine" }];
+    const receivePrompt = [{ owner: "Marian1010", type: "Character", colors: "[[178,148,24],[210,36,42],[136,11,36],[149,11,35],[88,15,30]]", prompt: "This is an example prompt: Peace Machine" }];
     let found = false;
 
     for (i = 0; i < received.length; ++i) {
@@ -176,6 +188,7 @@ function favorite() {
         if (saves[i].prompt === "") {
             saves[i].owner = currentPrompt[0].owner;
             saves[i].type = currentPrompt[0].type;
+            saves[i].colors = currentPrompt[0].colors;
             saves[i].prompt = currentPrompt[0].prompt;
             saveFavorites(saves);
             found = true;
