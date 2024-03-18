@@ -1,6 +1,6 @@
 let saves = [];
 let currentSave;
-let colors;
+let colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
 let text;
 let promptType;
 
@@ -85,8 +85,8 @@ function displaySave(buttonId) {
 function setColors(num) {
     if (num < colors.length) {
         let field = "color" + (num + 1);
-        document.getElementById(field).style.color = "rgb(" + colors[num] + ")";
-        document.getElementById(field).style.backgroundColor = "rgb(" + colors[num] + ")";
+        document.getElementById(field).style.color = colors[num];
+        document.getElementById(field).style.backgroundColor = colors[num];
         setColors(++num, colors);
     }
 }

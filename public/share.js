@@ -92,8 +92,8 @@ function displayReceived(buttonId) {
 function setColors(num, colors) {
     if (num < colors.length) {
         let field = "color" + (num + 1);
-        document.getElementById(field).style.color = "rgb(" + colors[num] + ")";
-        document.getElementById(field).style.backgroundColor = "rgb(" + colors[num] + ")";
+        document.getElementById(field).style.color = colors[num];
+        document.getElementById(field).style.backgroundColor = colors[num];
         setColors(++num, colors);
     }
 }
@@ -154,7 +154,7 @@ async function receive() {
 
 function findSpace() {
     //websocket placeholder
-    const receivePrompt = [{ owner: "Marian1010", type: "Character", colors: [[178,148,24],[210,36,42],[136,11,36],[149,11,35],[88,15,30]], prompt: "This is an example prompt: Peace Machine" }];
+    const receivePrompt = [{ owner: "Marian1010", type: "Character", colors: ["rgb(178,148,24)","rgb(210,36,42)","rgb(136,11,36)","rgb(149,11,35)","rgb(88,15,30)"], prompt: "This is an example prompt: Peace Machine" }];
     let found = false;
 
     for (i = 0; i < received.length; ++i) {

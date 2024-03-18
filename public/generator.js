@@ -190,7 +190,7 @@ const modes = ["monochrome", "monochrome-dark", "monochrome-light", "analogic", 
 
 let currentPrompt;
 let newPrompt = "";
-let colors;
+let colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
 
 function loadDisplay() {
     currentPrompt = localStorage.getItem("currentPrompt");
@@ -257,7 +257,7 @@ function generate() {
 
 function generateFusion(topics) {
     let bank = [];
-    colors = [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]];
+    colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
     
     for (i = 0; i < topics.length; ++i) {
         if (topics[i] === "optionFantasy") {
@@ -312,7 +312,7 @@ function generateCharacter(topics) {
 }
 
 function generateScenario(topics) {
-    colors = [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]]
+    colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
     const randomSetting = settings[getRandomInt(0, settings.length - 1)];
     const randomConflict = conflicts[getRandomInt(0, conflicts.length - 1)];
     const randomTheme = themes[getRandomInt(0, themes.length - 1)];
