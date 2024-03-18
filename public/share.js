@@ -154,16 +154,18 @@ async function receive() {
 
 function findSpace() {
     //websocket placeholder
-    const receivePrompt = [{ owner: "Marian1010", type: "Character", colors: "[[178,148,24],[210,36,42],[136,11,36],[149,11,35],[88,15,30]]", prompt: "This is an example prompt: Peace Machine" }];
+    const receivePrompt = [{ owner: "Marian1010", type: "Character", colors: [[178,148,24],[210,36,42],[136,11,36],[149,11,35],[88,15,30]], prompt: "This is an example prompt: Peace Machine" }];
     let found = false;
 
     for (i = 0; i < received.length; ++i) {
         if (received[i].prompt === "") {
             received[i].owner = receivePrompt[0].owner;
             received[i].type = receivePrompt[0].type;
+            received[i].colors = receivePrompt[0].colors;
             received[i].prompt = receivePrompt[0].prompt;
             localStorage.removeItem("received");
             localStorage.setItem("received", JSON.stringify(received));
+            saveReceived(received);
             found = true;
             break;
         }
