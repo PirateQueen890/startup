@@ -186,6 +186,8 @@ const topicSupernatural = ["Demon", "Psychic", "Magic", "Metaphysical", "Miracul
 "Phenomenon", "Ectoplasma", "Omen", "Artifact", "Phantasmagorical", "Abnormal", "Dark", "Energy", "Voodoo", "Invocation", "Purgatory", 
 "Crystal ball", "Runes", "Symbols", "Cat", "Full", "Moon", "Half"]
 
+const modes = ["monochrome", "monochrome-dark", "monochrome-light", "analogic", "complement", "analogic-complement", "triad", "quad"]
+
 let currentPrompt;
 let newPrompt = "";
 let colors;
@@ -301,7 +303,7 @@ function generateCharacter(topics) {
     const randomStrength = strengths[getRandomInt(0, strengths.length - 1)];
     const randomTalent = talents[getRandomInt(0, talents.length - 1)];
 
-    getRandomPalette();
+    getRandomColor();
 
     newPrompt = "<b>Motivation: </b>" + randomMotivation + "<br> <b>Flaw: </b>" + randomFlaw + "<br> <b>Strength: </b>" 
     + randomStrength + "<br> <b>Talent: </b>" + randomTalent;
@@ -335,29 +337,45 @@ function addRandomWords(bank, topic, number) {
     return bank;
 }
 
-async function getRandomPalette() {
+async function getRandomColor() {
     try {
-        const response = await fetch("http://colormind.io/api/", {
-          method: 'POST',
-          //headers: {"content-type": "application/json"},
-          body: JSON.stringify({"model": "default"}),
-        });
-        colors = await response.json();
-        colors = colors.result;
+        const response = await fetch("https://random-flat-colors.vercel.app/api/random?count=2");
+        let seedColor = await response.json();
+        seedColor = seedColor.colors[0];
+        getRandomPalette(seedColor.slice(1));
+    } catch {
+        console.log("Error: Failed to fetch random color.");
+    }
+}
+
+async function getRandomPalette(seedColor) {
+    const mode = modes[getRandomInt(0, modes.length - 1)];
+    const url = "https://www.thecolorapi.com/scheme?hex=" + seedColor + "&mode=" + mode;
+
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
+        populateColors(result.colors);
         currentPrompt[0].colors = colors;
     } catch {
         console.log("Error: Failed to fetch random palette.");
-        colors = [[50,50,41],[78,132,138],[180,183,157],[229,239,229],[196,134,136]]; 
+        colors = ["rgb(50,50,41)","rgb(78,132,138)","rgb(180,183,157)","rgb(229,239,229)","rgb(196,134,136)"]; 
     }
 
     setColors(0);
 }
 
+function populateColors(result) {
+    for (c = 0; c < result.length; ++c) {
+        colors[c] = result[c].rgb.value;
+    }
+}
+
 function setColors(num) {
     if (num < colors.length) {
         let field = "color" + (num + 1);
-        document.getElementById(field).style.color = "rgb(" + colors[num] + ")";
-        document.getElementById(field).style.backgroundColor = "rgb(" + colors[num] + ")";
+        document.getElementById(field).style.color = colors[num];
+        document.getElementById(field).style.backgroundColor = colors[num];
         setColors(++num, colors);
     }
 }

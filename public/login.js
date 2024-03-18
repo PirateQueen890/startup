@@ -14,7 +14,7 @@ function login() {
     //Load any received prompt from the database
     loadReceived();
     
-    let currentPrompt = [{owner: "", type: "", colors: [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]], prompt: "Click the Generate button to get a prompt!"}];
+    let currentPrompt = [{owner: "", type: "", colors: ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"], prompt: "Click the Generate button to get a prompt!"}];
     localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
 
     window.location.href = "generator.html";
