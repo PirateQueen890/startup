@@ -22,6 +22,7 @@ let received;
 // GetFavorites
 apiRouter.get('/favorites', (_req, res) => {
     //grab from database
+    console.log("In /favorites api");
     favorites = [
         { id: "save1", owner: "ThePumpkinKing", type: "Fusion", colors: ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"], prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
         { id: "save2", owner: "YilingPatriarch", type: "Character", colors: ["rgb(35,32,32)","rgb(50,56,48)","rgb(172,137,128)","rgb(241,230,203)","rgb(74,230,226)"], prompt: "Motivation: Justice <br> Flaw: Whiny <br> Strength: Philosophical <br> Talent: Public Speaking" },
@@ -36,6 +37,7 @@ apiRouter.get('/favorites', (_req, res) => {
 // SubmitFavorites
 apiRouter.put('/favorite', (req, res) => {
     //update favorites in database
+    console.log("In /favorite api");
     favorites = req.body;
     res.send(true);
 });
@@ -43,6 +45,7 @@ apiRouter.put('/favorite', (req, res) => {
 // GetReceives
 apiRouter.get('/receives', (_req, res) => {
     //grab from database
+    console.log("In /receives api");
     received = [
         { id: "received1", owner: "ThePumpkinKing", type: "Fusion", colors: ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"], prompt: "Blood Divine <br> Ancestor Step-mother <br> Nemesis Throne <br> Feathers Disperse <br> Carnage Dragon <br> Vicious Machine" },
         { id: "received2", owner: "Marion900", type: "Character", colors: ["rgb(48,189,205)","rgb(51,172,177)","rgb(211,195,54)","rgb(217,181,40)","rgb(135,185,30)"], prompt: "There's an awesome character here." },
@@ -57,6 +60,7 @@ apiRouter.get('/receives', (_req, res) => {
 // SubmitReceived
 apiRouter.put('/received', (req, res) => {
   //update received in database
+  console.log("In /received api");
   received = req.body;
   res.send(true);
 });

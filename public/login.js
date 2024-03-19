@@ -8,9 +8,6 @@ function login() {
     const currentUsername = document.querySelector("#username");
     localStorage.setItem("username", JSON.stringify(currentUsername.value));
 
-    //If there is a username, load favorites from database
-    loadFavorites();
-
     //Load any received prompts from the database
     loadReceived();
     
@@ -20,18 +17,6 @@ function login() {
     window.location.href = "generator.html";
 }
 
-async function loadFavorites() {
-    let favorites = [];
-
-    try {
-      const response = await fetch("/api/favorites");
-      favorites = await response.json();
-    } catch {
-        console.log("Error: Failed to fetch favorites.");
-    }
-  
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-}
 
 async function loadReceived() {
     let received = [];

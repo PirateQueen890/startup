@@ -12,8 +12,7 @@ function favorites() {
     const save5 = document.getElementById("save5");
     const save6 = document.getElementById("save6");
 
-    saves = localStorage.getItem("favorites");
-    saves = JSON.parse(saves);
+    saves = loadFavorites();
     
     if (saves[0].prompt != "") {
         promptType = saves[0].type;
@@ -141,8 +140,6 @@ function deletePrompt() {
 
 //Save in localStorage and database
 async function saveFavorites(saves) {
-    localStorage.removeItem("favorites");
-    localStorage.setItem("favorites", JSON.stringify(saves));
 
     try {
       const response = await fetch('/api/favorite', {
@@ -153,4 +150,17 @@ async function saveFavorites(saves) {
     } catch {
         console.log("Error: Failed to save favorites in database.");
     }
+}
+
+async function loadFavorites() {
+    let favorites = [];
+
+    try {
+      const response = await fetch("/api/favorites");
+      favorites = await response.json();
+    } catch {
+        console.log("Error: Failed to fetch favorites.");
+    }
+  
+    return favorites;
 }

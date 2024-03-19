@@ -198,6 +198,16 @@ function loadDisplay() {
 
     setColors(0, currentPrompt[0].colors);
     document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt;
+
+    //try {
+       // const username = localStorage.getItem("username");
+       // username = JSON.parse(username);
+   // } catch {
+       // console.log("Error: Not logged in.")
+       // document.getElementById("buttonFavorite").disabled = true;
+       // document.getElementById("buttonShareGen").disabled = true;
+ //   }
+
 }
 
 function generate() {
@@ -386,9 +396,8 @@ function share() {
     window.location.href = "share.html";
 }
 
-function favorite() {
-    let saves = localStorage.getItem("favorites");
-    saves = JSON.parse(saves);
+async function favorite() {
+    let saves = await loadFavorites();
     let found = false;
 
     for (i = 0; i < saves.length; ++i) {
@@ -416,9 +425,7 @@ function favorite() {
 
 //Update in localStorage and database
 async function saveFavorites(saves) {
-    localStorage.removeItem("favorites");
-    localStorage.setItem("favorites", JSON.stringify(saves));
-
+    
     try {
       const response = await fetch('/api/favorite', {
         method: 'PUT',
@@ -428,4 +435,17 @@ async function saveFavorites(saves) {
     } catch {
         console.log("Error: Failed to save favorites in database.");
     }
+}
+
+async function loadFavorites() {
+    let favorites = [];
+
+    try {
+      const response = await fetch("/api/favorites");
+      favorites = await response.json();
+    } catch {
+        console.log("Error: Failed to fetch favorites.");
+    }
+  
+    return favorites;
 }
