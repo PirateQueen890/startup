@@ -146,7 +146,7 @@ async function saveFavorites(saves) {
 
     try {
       const response = await fetch('/api/favorite', {
-        method: 'POST',
+        method: 'PUT',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(saves),
       });

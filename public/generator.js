@@ -414,14 +414,14 @@ function favorite() {
     }
 }
 
-//Save in localStorage and database
+//Update in localStorage and database
 async function saveFavorites(saves) {
     localStorage.removeItem("favorites");
     localStorage.setItem("favorites", JSON.stringify(saves));
 
     try {
       const response = await fetch('/api/favorite', {
-        method: 'POST',
+        method: 'PUT',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(saves),
       });

@@ -272,7 +272,7 @@ async function saveReceived(received) {
 
     try {
       const response = await fetch('/api/received', {
-        method: 'POST',
+        method: 'PUT',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(received),
       });

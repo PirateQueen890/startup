@@ -34,10 +34,10 @@ apiRouter.get('/favorites', (_req, res) => {
 });
 
 // SubmitFavorites
-apiRouter.post('/favorite', (req, res) => {
-    //replace favorites in database
+apiRouter.put('/favorite', (req, res) => {
+    //update favorites in database
     favorites = req.body;
-    res.send(favorites);
+    res.send(true);
 });
 
 // GetReceives
@@ -55,12 +55,11 @@ apiRouter.get('/receives', (_req, res) => {
 });
 
 // SubmitReceived
-apiRouter.post('/received', (req, res) => {
-  //replace received in database
+apiRouter.put('/received', (req, res) => {
+  //update received in database
   received = req.body;
-  res.send(received);
+  res.send(true);
 });
-
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
