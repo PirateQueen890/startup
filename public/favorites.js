@@ -4,7 +4,7 @@ let colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", 
 let text;
 let promptType;
 
-function favorites() {
+async function favorites() {
     const save1 = document.getElementById("save1");
     const save2 = document.getElementById("save2");
     const save3 = document.getElementById("save3");
@@ -12,7 +12,7 @@ function favorites() {
     const save5 = document.getElementById("save5");
     const save6 = document.getElementById("save6");
 
-    saves = loadFavorites();
+    saves = await loadFavorites();
     
     if (saves[0].prompt != "") {
         promptType = saves[0].type;

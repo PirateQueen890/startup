@@ -261,8 +261,7 @@ function generate() {
     currentPrompt[0].type = generationType;
     currentPrompt[0].colors = colors;
     newPrompt = "";
-    localStorage.removeItem("currentPrompt");
-    localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
+    storeCurrentPrompt();
 }
 
 function generateFusion(topics) {
@@ -303,7 +302,7 @@ function generateFusion(topics) {
         newPrompt = newPrompt + "<br>" + fusions[i];
     }
 
-    setColors(0);
+    setColors(0, colors);
     document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
 
@@ -329,7 +328,7 @@ function generateScenario(topics) {
 
     newPrompt = "<b>Setting: </b>" + randomSetting + "<br> <b>Conflict: </b>" + randomConflict + "<br> <b>Theme: </b>" + randomTheme;
 
-    setColors(0);
+    setColors(0, colors);
     document.querySelector("#displayPrompt").innerHTML=newPrompt;
 }
 
@@ -367,12 +366,13 @@ async function getRandomPalette(seedColor) {
         const result = await response.json();
         populateColors(result.colors);
         currentPrompt[0].colors = colors;
+        storeCurrentPrompt();
     } catch {
         console.log("Error: Failed to fetch random palette.");
         colors = ["rgb(50,50,41)","rgb(78,132,138)","rgb(180,183,157)","rgb(229,239,229)","rgb(196,134,136)"]; 
     }
 
-    setColors(0);
+    setColors(0, colors);
 }
 
 function populateColors(result) {
@@ -381,7 +381,7 @@ function populateColors(result) {
     }
 }
 
-function setColors(num) {
+function setColors(num, colors) {
     if (num < colors.length) {
         let field = "color" + (num + 1);
         document.getElementById(field).style.color = colors[num];
@@ -390,9 +390,13 @@ function setColors(num) {
     }
 }
 
-function share() {
+function storeCurrentPrompt() {
     localStorage.removeItem("currentPrompt");
     localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
+}
+
+function share() {
+    storeCurrentPrompt();
     window.location.href = "share.html";
 }
 
