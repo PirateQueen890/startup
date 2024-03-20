@@ -180,6 +180,7 @@ function findSpace() {
 async function favorite() {
     let saves = await loadFavorites();
     let found = false;
+    let message;
 
     for (i = 0; i < saves.length; ++i) {
         if (saves[i].prompt === "") {
@@ -193,27 +194,12 @@ async function favorite() {
         }
     }
 
-    let message;
-
     if (found) {
         message = currentPrompt[0].prompt + "<br> <i>Success!</i>";
-        document.querySelector("#displayPrompt").innerHTML=message;
+        document.querySelector("#displayCurrentPrompt").innerHTML=message;
     } else {
         message = currentPrompt[0].prompt + "<br> <i>FAILED: No space. Delete a favorited prompt and try again.</i>";
-        document.querySelector("#displayPrompt").innerHTML=message;
-    }
-}
-
-//Save in localStorage and database
-async function saveFavorites(saves) {
-    try {
-      const response = await fetch('/api/favorite', {
-        method: 'PUT',
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify(saves),
-      });
-    } catch {
-        console.log("Error: Failed to save favorites in database.");
+        document.querySelector("#displayCurrentPrompt").innerHTML=message;
     }
 }
 
@@ -281,4 +267,30 @@ async function loadReceived() {
     }
   
     return received;
+}
+
+//Save in localStorage and database
+async function saveFavorites(saves) {
+    try {
+      const response = await fetch('/api/favorite', {
+        method: 'PUT',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(saves),
+      });
+    } catch {
+        console.log("Error: Failed to save favorites in database.");
+    }
+}
+
+async function loadFavorites() {
+    let favorites = [];
+
+    try {
+      const response = await fetch("/api/favorites");
+      favorites = await response.json();
+    } catch {
+        console.log("Error: Failed to fetch favorites.");
+    }
+  
+    return favorites;
 }
