@@ -419,10 +419,10 @@ async function favorite() {
     let message;
 
     if (found) {
-        message = currentPrompt[0].prompt + "<br> Success!";
+        message = currentPrompt[0].prompt + "<br> <i>Success!</i>";
         document.querySelector("#displayPrompt").innerHTML=message;
     } else {
-        message = currentPrompt[0].prompt + "<br> FAILED: No space. Delete a favorited prompt and try again.";
+        message = currentPrompt[0].prompt + "<br> <i>FAILED: No space. Delete a favorited prompt and try again.</i>";
         document.querySelector("#displayPrompt").innerHTML=message;
     }
 }
