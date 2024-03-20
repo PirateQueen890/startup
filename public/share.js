@@ -3,7 +3,7 @@ let received;
 let currentReceived;
 let promptType;
 
-function loadPage() {
+async function loadPage() {
     currentPrompt = localStorage.getItem("currentPrompt");
     currentPrompt = JSON.parse(currentPrompt);
 
@@ -17,9 +17,7 @@ function loadPage() {
     const received5 = document.getElementById("received5");
     const received6 = document.getElementById("received6");
 
-    received = localStorage.getItem("received");
-    received = JSON.parse(received);
-
+    received = await loadReceived();
     
     if (received[0].prompt != "") {
         promptType = received[0].type;
@@ -163,8 +161,6 @@ function findSpace() {
             received[i].type = receivePrompt[0].type;
             received[i].colors = receivePrompt[0].colors;
             received[i].prompt = receivePrompt[0].prompt;
-            localStorage.removeItem("received");
-            localStorage.setItem("received", JSON.stringify(received));
             saveReceived(received);
             found = true;
             break;
@@ -181,9 +177,8 @@ function findSpace() {
     return found;
 }
 
-function favorite() {
-    let saves = localStorage.getItem("favorites");
-    saves = JSON.parse(saves);
+async function favorite() {
+    let saves = await loadFavorites();
     let found = false;
 
     for (i = 0; i < saves.length; ++i) {
@@ -201,22 +196,19 @@ function favorite() {
     let message;
 
     if (found) {
-        message = currentPrompt[0].prompt + "<br> Success!";
-        document.querySelector("#displayCurrentPrompt").innerHTML=message;
+        message = currentPrompt[0].prompt + "<br> <i>Success!</i>";
+        document.querySelector("#displayPrompt").innerHTML=message;
     } else {
-        message = currentPrompt[0].prompt + "<br> FAILED: No space. Delete a favorited prompt and try again.";
-        document.querySelector("#displayCurrentPrompt").innerHTML=message;
+        message = currentPrompt[0].prompt + "<br> <i>FAILED: No space. Delete a favorited prompt and try again.</i>";
+        document.querySelector("#displayPrompt").innerHTML=message;
     }
 }
 
 //Save in localStorage and database
 async function saveFavorites(saves) {
-    localStorage.removeItem("favorites");
-    localStorage.setItem("favorites", JSON.stringify(saves));
-
     try {
       const response = await fetch('/api/favorite', {
-        method: 'POST',
+        method: 'PUT',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(saves),
       });
@@ -267,9 +259,6 @@ function deleteReceived() {
 
 //Save in localStorage and database
 async function saveReceived(received) {
-    localStorage.removeItem("received");
-    localStorage.setItem("received", JSON.stringify(received));
-
     try {
       const response = await fetch('/api/received', {
         method: 'PUT',
@@ -279,4 +268,17 @@ async function saveReceived(received) {
     } catch {
         console.log("Error: Failed to save received in database.");
     }
+}
+
+async function loadReceived() {
+    let received = [];
+
+    try {
+      const response = await fetch("/api/receives");
+      received = await response.json();
+    } catch {
+        console.log("Error: Failed to fetch receives.");
+    }
+  
+    return received;
 }
