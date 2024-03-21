@@ -65,9 +65,21 @@ For this deliverable, I added turned my application into a service and added cal
 * **Prerequisite: Simon Service deployed to your production environment --** Completed. Use simon subdomain to access.
 * **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer on each page.
 * **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --** Completed.
-* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** Mar 9 - 5 commits, Mar 10 - 5 commits, Mar 12 - 2 commits, Mar 13 - 4 commits, Mar 14 - 1 commit, Mar 17 - 2 commits, Mar 18 - 3 commits.
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** Mar 9 - 5 commits, Mar 10 - 5 commits, Mar 12 - 2 commits, Mar 13 - 4 commits, Mar 14 - 1 commit, Mar 17 - 2 commits, Mar 18 - 3 commits, Mar 19 - 5 commits.
 * **Create an HTTP service using Node.js and Express --** Completed. The application is now a service.
 * **Frontend served up using Express static middleware --** Completed. Check out index.js
 * **Your frontend calls third party service endpoints --** Completed. See the functions getRandomColor and getRandomPalette in generator.js
 * **Your backend provides service endpoints --** Completed. See index.js for /favorites, /favorite, /receive, and /received.
 * **Your frontend calls your service endpoints --** Completed. See login.js (import info from db) and generator.js, favorites.js, and share.js (export info to db).
+
+## Login Deliverable
+
+* **Prerequisite: Simon Login deployed to your production environment --** Completed. Use simon subdomain to access.
+* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer of each page.
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --**
+* **Supports new user registration --**
+* **Supports existing user authentication --**
+* **Stores application data in MongoDB --**
+* **Stores and retrieves credentials in MongoDB --**
+* **Restricts application functionality based upon authentication --**
