@@ -14,7 +14,7 @@
     <script src="login.js"></script>
 </head>
 
-<body>
+<body onload="loadPage()">
     <header class="container-fluid">
       <nav class="navbar fixed-top navbar-dark">
         <a class="navbar-brand" href="#">Writing Prompts<sup>&reg;</sup></a>
@@ -34,8 +34,8 @@
 
     <main class="container-fluid text-center">
       <div>
-        <h2>Welcome!</h2>
-        <p>Log in to favorite and share generated prompts.</p>
+        <h1>Welcome!</h1>
+        <h4>Log in to favorite and share generated prompts.</h4>
         <!-- Displayed when needing authentication -->
         <div id="loginControls" style="display: none">
           <div class="input-group mb-3">
