@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="login.css" />
     <script src="login.js"></script>
 </head>
 
@@ -25,26 +26,48 @@
             <a class="nav-link" href="generator.html">Generator</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="favorites.html">Favorites</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
           </li>
         </menu>
       </nav>
     </header>
 
-    <main>
-        <hr/>
-        <h2>Welcome!</h2>
-        <p>Sign in to favorite and share generated prompts</p>
-
-        <div id="inputUsername">
-          <label for="inputUsername">Username: </label>
-          <input type="text" id="username" placeholder="Your username here" oninput="activateButton()"/>
-          <button class="btn btn-primary" id="buttonLogin" onclick="login()" disabled>Login</button>
+    <main class="container-fluid text-center">
+      <div>
+        <h1>Welcome!</h1>
+        <p>Log in to favorite and share generated prompts.</p>
+        <!-- Displayed when needing authentication -->
+        <div id="loginControls" style="display: none">
+          <div class="input-group mb-3">
+            <span class="input-group-text">👤</span>
+            <input class="form-control" type="text" id="username" placeholder="Your username" />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">🔒</span>
+            <input class="form-control" type="password" id="userPassword" placeholder="Password" />
+          </div>
+          <button type="button" class="btn btn-primary" onclick="loginUser()">Login</button>
+          <button type="button" class="btn btn-primary" onclick="createUser()">Create</button>
         </div>
-        
+        <!-- Displayed when ready to play -->
+        <div id="playControls" style="display: none">
+          <div id="playerName"></div>
+          <button type="button" class="btn btn-primary" onclick="generate()">Generate</button>
+          <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <!-- Error dialog -->
+      <div class="modal fade" id="msgModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-dark">
+            <div class="modal-body">error message here</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 </body>
 
