@@ -8,6 +8,7 @@ function loadPage() {
     } else {
         setDisplay("loginControls", "block");
         setDisplay("playControls", "none");
+        document.getElementById("navFav").remove();
     }
 }
 

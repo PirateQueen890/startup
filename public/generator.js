@@ -200,18 +200,15 @@ function loadDisplay() {
     username = localStorage.getItem("username");
     username = JSON.parse(username);
 
+    if (username == null) {
+        console.log("Not logged in.")
+        document.getElementById("buttonFavorite").disabled = true;
+        document.getElementById("buttonShareGen").disabled = true;
+        document.getElementById("navFav").remove();
+    }
+
     setColors(0, currentPrompt[0].colors);
     document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt;
-
-    //try {
-       // const username = localStorage.getItem("username");
-       // username = JSON.parse(username);
-   // } catch {
-       // console.log("Error: Not logged in.")
-       // document.getElementById("buttonFavorite").disabled = true;
-       // document.getElementById("buttonShareGen").disabled = true;
- //   }
-
 }
 
 function generate() {

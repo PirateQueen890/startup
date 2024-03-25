@@ -10,9 +10,10 @@
     />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="about.css" />
+    <script src="about.js"></script>
 </head>
 
-<body>
+<body onload="loadPage()">
   <header class="container-fluid">
     <nav class="navbar fixed-top navbar-dark">
       <a class="navbar-brand" href="#">Writing Prompts<sup>&reg;</sup></a>
@@ -23,7 +24,7 @@
         <li class="nav-item">
           <a class="nav-link" href="generator.html">Generator</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="navFav">
           <a class="nav-link" href="favorites.html">Favorites</a>
         </li>
         <li class="nav-item">
