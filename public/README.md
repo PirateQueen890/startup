@@ -73,13 +73,13 @@ For this deliverable, I added turned my application into a service and added cal
 * **Your frontend calls your service endpoints --** Completed. See login.js (import info from db) and generator.js, favorites.js, and share.js (export info to db).
 
 ## Login Deliverable
-
+For this deliverable, I added login funtionality. This was completed on 3/24/2024.
 * **Prerequisite: Simon Login deployed to your production environment --** Completed. Use simon subdomain to access.
 * **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer of each page.
-* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
-* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --**
-* **Supports new user registration --**
-* **Supports existing user authentication --**
-* **Stores application data in MongoDB --**
-* **Stores and retrieves credentials in MongoDB --**
-* **Restricts application functionality based upon authentication --**
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --** Completed.
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** Completed. Mar 20 - 1 commit, Mar 21 - 6 commits, Mar 22 - 3 commits, Mar 24 - 4 commits.
+* **Supports new user registration --** Completed. See database.js, index.js, and login.js. 
+* **Supports existing user authentication --** Completed. See database.js, index.js, and login.js. 
+* **Stores application data in MongoDB --** Completed. See database.js. 
+* **Stores and retrieves credentials in MongoDB --** Completed. See database.js. 
+* **Restricts application functionality based upon authentication --** Completed. While the user can generate prompts without being logged in, they will not be able to save, share, or receive prompts. Share and Save buttons are disabled, and the link to favorites.html is removed from the navigation bar. 
