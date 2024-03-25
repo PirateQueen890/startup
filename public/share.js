@@ -215,26 +215,32 @@ async function deleteReceived() {
     if (id === "received1") {
         received[0].owner = "";
         received[0].type = "";
+        received[0].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         received[0].prompt = "";
     } else if (id === "received2") {
         received[1].owner = "";
         received[1].type = "";
+        received[1].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         received[1].prompt = "";
     } else if (id === "received3") {
         received[2].owner = "";
         received[2].type = "";
+        received[2].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         received[2].prompt = "";
     } else if (id === "received4") {
         received[3].owner = "";
         received[3].type = "";
+        received[3].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         received[3].prompt = "";
     } else if (id === "received5") {
         received[4].owner = "";
         received[4].type = "";
+        received[4].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         received[4].prompt = "";
     } else if (id === "received6") {
         received[5].owner = "";
         received[5].type = "";
+        received[5].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         received[5].prompt = "";
     }
 

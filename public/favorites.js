@@ -113,26 +113,32 @@ async function deletePrompt() {
     if (id === "save1") {
         saves[0].owner = "";
         saves[0].type = "";
+        saves[0].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         saves[0].prompt = "";
     } else if (id === "save2") {
         saves[1].owner = "";
         saves[1].type = "";
+        saves[1].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         saves[1].prompt = "";
     } else if (id === "save3") {
         saves[2].owner = "";
         saves[2].type = "";
+        saves[2].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         saves[2].prompt = "";
     } else if (id === "save4") {
         saves[3].owner = "";
         saves[3].type = "";
+        saves[3].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         saves[3].prompt = "";
     } else if (id === "save5") {
         saves[4].owner = "";
         saves[4].type = "";
+        saves[4].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         saves[4].prompt = "";
     } else if (id === "save6") {
         saves[5].owner = "";
         saves[5].type = "";
+        saves[5].colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
         saves[5].prompt = "";
     }
 
