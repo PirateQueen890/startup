@@ -3,8 +3,12 @@ let currentSave;
 let colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
 let text;
 let promptType;
+let username;
 
 async function favorites() {
+    username = localStorage.getItem("username");
+    username = JSON.parse(username);
+
     const save1 = document.getElementById("save1");
     const save2 = document.getElementById("save2");
     const save3 = document.getElementById("save3");
@@ -101,7 +105,7 @@ function share() {
     window.location.href = "share.html";
 }
 
-function deletePrompt() {
+async function deletePrompt() {
     //Remove prompt from database
 
     const id = currentSave.id;
@@ -132,7 +136,7 @@ function deletePrompt() {
         saves[5].prompt = "";
     }
 
-    saveFavorites(saves);
+    await saveFavorites(saves);
 
     currentSave.disabled = true;
     currentSave.textContent = "[Empty]";
@@ -140,12 +144,14 @@ function deletePrompt() {
 
 //Save in localStorage and database
 async function saveFavorites(saves) {
-
     try {
       const response = await fetch('/api/favorite', {
         method: 'PUT',
         headers: {'content-type': 'application/json'},
-        body: JSON.stringify(saves),
+        body: JSON.stringify({
+            username: username,
+            favorites: saves,
+        }),
       });
     } catch {
         console.log("Error: Failed to save favorites in database.");
@@ -156,8 +162,9 @@ async function loadFavorites() {
     let favorites = [];
 
     try {
-      const response = await fetch("/api/favorites");
+      const response = await fetch('/api/favorites')
       favorites = await response.json();
+      favorites = favorites.favorites;
     } catch {
         console.log("Error: Failed to fetch favorites.");
     }

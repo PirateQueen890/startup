@@ -2,10 +2,14 @@ let currentPrompt;
 let received;
 let currentReceived;
 let promptType;
+let username;
 
 async function loadPage() {
     currentPrompt = localStorage.getItem("currentPrompt");
     currentPrompt = JSON.parse(currentPrompt);
+
+    username = localStorage.getItem("username");
+    username = JSON.parse(username);
 
     setColors(0, currentPrompt[0].colors);
     document.querySelector("#displayCurrentPrompt").innerHTML = currentPrompt[0].prompt;
@@ -150,7 +154,7 @@ async function receive() {
     }
 }
 
-function findSpace() {
+async function findSpace() {
     //websocket placeholder
     const receivePrompt = [{ owner: "Marian1010", type: "Character", colors: ["rgb(178,148,24)","rgb(210,36,42)","rgb(136,11,36)","rgb(149,11,35)","rgb(88,15,30)"], prompt: "This is an example prompt: Peace Machine" }];
     let found = false;
@@ -161,7 +165,7 @@ function findSpace() {
             received[i].type = receivePrompt[0].type;
             received[i].colors = receivePrompt[0].colors;
             received[i].prompt = receivePrompt[0].prompt;
-            saveReceived(received);
+            await saveReceived(received);
             found = true;
             break;
         }
@@ -188,7 +192,7 @@ async function favorite() {
             saves[i].type = currentPrompt[0].type;
             saves[i].colors = currentPrompt[0].colors;
             saves[i].prompt = currentPrompt[0].prompt;
-            saveFavorites(saves);
+            await saveFavorites(saves);
             found = true;
             break;
         }
@@ -203,7 +207,7 @@ async function favorite() {
     }
 }
 
-function deleteReceived() {
+async function deleteReceived() {
     //Remove received prompt from database
 
     const id = currentReceived.id;
@@ -234,7 +238,7 @@ function deleteReceived() {
         received[5].prompt = "";
     }
 
-    saveReceived(received);
+    await saveReceived(received);
 
     currentReceived.disabled = true;
     currentReceived.textContent = "[Empty]";
@@ -246,11 +250,14 @@ function deleteReceived() {
 //Save in localStorage and database
 async function saveReceived(received) {
     try {
-      const response = await fetch('/api/received', {
-        method: 'PUT',
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify(received),
-      });
+        const response = await fetch('/api/received', {
+            method: 'PUT',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({
+                username: username,
+                received: received,
+            }),
+          });
     } catch {
         console.log("Error: Failed to save received in database.");
     }
@@ -260,8 +267,9 @@ async function loadReceived() {
     let received = [];
 
     try {
-      const response = await fetch("/api/receives");
-      received = await response.json();
+        const response = await fetch("/api/receives");
+        received = await response.json();
+        received = received.received;
     } catch {
         console.log("Error: Failed to fetch receives.");
     }
@@ -275,7 +283,10 @@ async function saveFavorites(saves) {
       const response = await fetch('/api/favorite', {
         method: 'PUT',
         headers: {'content-type': 'application/json'},
-        body: JSON.stringify(saves),
+        body: JSON.stringify({
+            username: username,
+            favorites: saves,
+        }),
       });
     } catch {
         console.log("Error: Failed to save favorites in database.");
@@ -286,8 +297,9 @@ async function loadFavorites() {
     let favorites = [];
 
     try {
-      const response = await fetch("/api/favorites");
+      const response = await fetch('/api/favorites')
       favorites = await response.json();
+      favorites = favorites.favorites;
     } catch {
         console.log("Error: Failed to fetch favorites.");
     }

@@ -74,40 +74,38 @@ async function createUser(username, password) {
     return user;
 }
 
-function updateFavorites(saves, username) {
+async function updateFavorites(saves, username) {
     const filter = {username: username};
     const options = {upsert: false};
-    const update = {$set: saves};
+    const update = {$set: {
+        favorites: saves}
+    };
 
-    favoritesCollection.updateOne(filter, update, options);
+    await favoritesCollection.updateOne(filter, update, options);
 }
 
-function updateReceived(received, username) {
+async function updateReceived(received, username) {
     const filter = {username: username};
     const options = {upsert: false};
-    const update = {$set: received};
+    const update = {$set:  {
+        received: received}
+    };
 
-    receivedCollection.updateOne(filter, update, options);
+    await receivedCollection.updateOne(filter, update, options);
 }
 
-function getFavorites(username) {
+async function getFavorites(username) {
     const query = {username: username};
-    const options = {
-        projection: {username: 0, favorites: 1},
-    }
 
-    const userFavorites = await.favoritesCollection.findOne(query, options);
+    const userFavorites = await favoritesCollection.findOne(query);
 
     return userFavorites;
 }
 
-function getReceived(username) {
+async function getReceived(username) {
     const query = {username: username};
-    const options = {
-        projection: {username: 0, received: 1},
-    }
 
-    const userReceived = await.receivedCollection.findOne(query, options);
+    const userReceived = await receivedCollection.findOne(query);
 
     return userReceived;
 }

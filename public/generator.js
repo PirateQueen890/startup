@@ -190,11 +190,15 @@ const modes = ["monochrome", "monochrome-dark", "monochrome-light", "analogic", 
 
 let currentPrompt;
 let newPrompt = "";
+let username;
 let colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
 
 function loadDisplay() {
     currentPrompt = localStorage.getItem("currentPrompt");
     currentPrompt = JSON.parse(currentPrompt);
+
+    username = localStorage.getItem("username");
+    username = JSON.parse(username);
 
     setColors(0, currentPrompt[0].colors);
     document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt;
@@ -253,10 +257,7 @@ function generate() {
         document.getElementById("displayPrompt").textContent=error;
     }
 
-    let user = localStorage.getItem("username");
-    user = JSON.parse(user);
-
-    currentPrompt[0].owner = user;
+    currentPrompt[0].owner = username;
     currentPrompt[0].prompt = newPrompt;
     currentPrompt[0].type = generationType;
     currentPrompt[0].colors = colors;
@@ -410,7 +411,7 @@ async function favorite() {
             saves[i].type = currentPrompt[0].type;
             saves[i].colors = currentPrompt[0].colors;
             saves[i].prompt = currentPrompt[0].prompt;
-            saveFavorites(saves);
+            await saveFavorites(saves);
             found = true;
             break;
         }
@@ -429,12 +430,14 @@ async function favorite() {
 
 //Update in localStorage and database
 async function saveFavorites(saves) {
-    
     try {
       const response = await fetch('/api/favorite', {
         method: 'PUT',
         headers: {'content-type': 'application/json'},
-        body: JSON.stringify(saves),
+        body: JSON.stringify({
+            username: username,
+            favorites: saves,
+        }),
       });
     } catch {
         console.log("Error: Failed to save favorites in database.");
@@ -445,8 +448,9 @@ async function loadFavorites() {
     let favorites = [];
 
     try {
-      const response = await fetch("/api/favorites");
+      const response = await fetch('/api/favorites')
       favorites = await response.json();
+      favorites = favorites.favorites;
     } catch {
         console.log("Error: Failed to fetch favorites.");
     }
