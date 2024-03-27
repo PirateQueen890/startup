@@ -83,3 +83,14 @@ For this deliverable, I added login funtionality. This was completed on 3/24/202
 * **Stores application data in MongoDB --** Completed. See database.js. 
 * **Stores and retrieves credentials in MongoDB --** Completed. See database.js. 
 * **Restricts application functionality based upon authentication --** Completed. While the user can generate prompts without being logged in, they will not be able to save, share, or receive prompts. Share and Save buttons are disabled, and the link to favorites.html is removed from the navigation bar. 
+
+## Websocket Deliverable
+
+* **Prerequisite: Simon WebSocket deployed to your production environment --**
+* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --**
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --**
+* **Backend listens for WebSocket connection --**
+* **Frontend makes WebSocket connection --**
+* **Data sent over WebSocket connection --**
+* **WebSocket data displayed in the application interface --**
