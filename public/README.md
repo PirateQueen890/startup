@@ -86,8 +86,8 @@ For this deliverable, I added login funtionality. This was completed on 3/24/202
 
 ## Websocket Deliverable
 
-* **Prerequisite: Simon WebSocket deployed to your production environment --**
-* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --**
+* **Prerequisite: Simon WebSocket deployed to your production environment --** Completed. Use simon subdomain to access.
+* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer of each page.
 * **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
 * **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --**
 * **Backend listens for WebSocket connection --**
