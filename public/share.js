@@ -59,7 +59,7 @@ async function loadPage() {
         received6.disabled = false;
     }
 
-    receive();
+    webSocketSetup();
 }
 
 function displayReceived(buttonId) {
@@ -100,10 +100,45 @@ function setColors(num, colors) {
     }
 }
 
-function share() {
-    const shareUsername = document.querySelector("#friendUsername");
-    localStorage.setItem("shareUsername", shareUsername.value);
+async function webSocketSetup() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
+        displayMsg('system', 'game', 'connected');
+    };
+    socket.onclose = (event) => {
+        displayMsg('system', 'game', 'disconnected');
+    };
+    socket.onmessage = async (event) => {
+        const msg = JSON.parse(await event.data.text());
+        if (msg.type === GameEndEvent) {
+            displayMsg('player', msg.from, `scored ${msg.value.score}`);
+        } else if (msg.type === GameStartEvent) {
+            displayMsg('player', msg.from, `started a new game`);
+        }
+    };
+}
 
+function displayMsg(cls, from, msg) {
+    const requestElement = document.createElement("li");
+
+    requestElement.innerHTML =
+        `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + requestElement.innerHTML;
+
+    const requests = document.getElementById("requests");
+    requests.appendChild(requestElement);
+}
+
+function  broadcastEvent(from, type, value) {
+    const event = {
+        from: from,
+        type: type,
+        value: value,
+    };
+    this.socket.send(JSON.stringify(event));
+}
+
+function share() {
     const request = createRequest();
 
     sendRequest(request)
@@ -117,7 +152,7 @@ function createRequest(request) {
     const requestElement = document.createElement("li");
     request = { element: requestElement, id: localStorage.getItem("shareUsername") };
 
-    requestElement.innerHTML = `<span>[${request.id}] 😄 <i>Sending</i> ...</span>`;
+    requestElement.innerHTML = `<span>[${request.id}] 😄 <i>Sharing</i> ...</span>`;
     const requests = document.getElementById("requests");
     requests.appendChild(requestElement);
 
@@ -286,14 +321,14 @@ async function loadReceived() {
 //Save in localStorage and database
 async function saveFavorites(saves) {
     try {
-      const response = await fetch('/api/favorite', {
+        const response = await fetch('/api/favorite', {
         method: 'PUT',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({
             username: username,
             favorites: saves,
         }),
-      });
+        });
     } catch {
         console.log("Error: Failed to save favorites in database.");
     }
@@ -303,12 +338,12 @@ async function loadFavorites() {
     let favorites = [];
 
     try {
-      const response = await fetch('/api/favorites')
-      favorites = await response.json();
-      favorites = favorites.favorites;
+        const response = await fetch('/api/favorites')
+        favorites = await response.json();
+        favorites = favorites.favorites;
     } catch {
         console.log("Error: Failed to fetch favorites.");
     }
-  
+
     return favorites;
 }
