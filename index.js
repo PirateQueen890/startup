@@ -73,11 +73,11 @@ apiRouter.get('/user/:username', async (req, res) => {
 });
 
 // secureApiRouter verifies credentials for endpoints
-var secureApiRouter = express.Router();
+const secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
 
 secureApiRouter.use(async (req, res, next) => {
-  authToken = req.cookies[authCookieName];
+  const authToken = req.cookies[authCookieName];
   const user = await db.getUserByToken(authToken);
   if (user) {
     next();
