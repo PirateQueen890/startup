@@ -104,10 +104,10 @@ async function webSocketSetup() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     socket.onopen = (event) => {
-        displayMsg('system', 'game', 'connected');
+        displayMsg("", username, "Connected!");
     };
     socket.onclose = (event) => {
-        displayMsg('system', 'game', 'disconnected');
+        displayMsg("", username, "Disconnected.");
     };
     socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());
@@ -119,11 +119,10 @@ async function webSocketSetup() {
     };
 }
 
-function displayMsg(cls, from, msg) {
+function displayMsg(emo, from, msg) {
     const requestElement = document.createElement("li");
 
-    requestElement.innerHTML =
-        `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + requestElement.innerHTML;
+    requestElement.innerHTML = `<span>[${from}] ${emo} <i>${msg}</i></span>`;;
 
     const requests = document.getElementById("requests");
     requests.appendChild(requestElement);
