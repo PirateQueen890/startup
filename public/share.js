@@ -14,6 +14,12 @@ async function loadPage() {
     setColors(0, currentPrompt[0].colors);
     document.querySelector("#displayCurrentPrompt").innerHTML = currentPrompt[0].prompt;
 
+    await loadReceivedButtons();
+
+    webSocketSetup();
+}
+
+async function loadReceivedButtons() {
     const received1 = document.getElementById("received1");
     const received2 = document.getElementById("received2");
     const received3 = document.getElementById("received3");
@@ -58,8 +64,6 @@ async function loadPage() {
         received6.textContent = received[5].owner + ", " + promptType;
         received6.disabled = false;
     }
-
-    webSocketSetup();
 }
 
 function displayReceived(buttonId) {
@@ -138,51 +142,21 @@ function  broadcastEvent(from, type, value) {
 function share() {
     broadcastEvent(username, "out", currentPrompt);
     displayMsg("🥳", username, "Shared!");
-
-    //sendRequest(request)
-   // .then((request) => returnRequest(request))
-    //.catch((request) => {
-    //    failedRequest(request);
-   // });
-}
-
-function createRequest(request) {
-    const requestElement = document.createElement("li");
-    request = { element: requestElement, id: localStorage.getItem("shareUsername") };
-
-    requestElement.innerHTML = `<span>[${request.id}] 😄 <i>Sharing</i> ...</span>`;
-    const requests = document.getElementById("requests");
-    requests.appendChild(requestElement);
-
-    return request;
-}
-
-function sendRequest(request) {
-    return new Promise((resolve, reject) => {
-        webSocketRequest(request, resolve, reject, 3000);
-      });
-}
-
-function returnRequest(request) {
-    request.element.innerHTML = `<span>[${request.id}] 🥳 <b>Sent</b>!</span>`;
-}
-
-function webSocketRequest(request, resolve, reject, time) {
-    //Websocket placeholder
-    setTimeout(() => resolve(request), time);
-}
-
-function failedRequest(request) {
-    request.element.innerHTML = `<span>[${request.id}] 😔 <b>Failed</b>!</span>`;
 }
 
 async function receive(msg) {
-    displayMsg("🤩", msg.from, "New prompt!");
+    let avaliableSpace = await findSpace(msg.value);
+
+    if (avaliableSpace) {
+        displayMsg("🤩", msg.from, "New prompt!");
+        await loadReceivedButtons();
+    } else {
+        displayMsg("😵", msg.from, "No space!");
+    }
+    
 }
 
-async function findSpace() {
-    //websocket placeholder
-    const receivePrompt = [{ owner: "Marian1010", type: "Character", colors: ["rgb(178,148,24)","rgb(210,36,42)","rgb(136,11,36)","rgb(149,11,35)","rgb(88,15,30)"], prompt: "This is an example prompt: Peace Machine" }];
+async function findSpace(receivePrompt) {
     let found = false;
 
     for (i = 0; i < received.length; ++i) {
