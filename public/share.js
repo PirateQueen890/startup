@@ -100,22 +100,20 @@ function setColors(num, colors) {
     }
 }
 
+let socket;
+
 async function webSocketSetup() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-    const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     socket.onopen = (event) => {
-        displayMsg("", username, "Connected!");
+        displayMsg("😄", username, "Connected!");
     };
     socket.onclose = (event) => {
-        displayMsg("", username, "Disconnected.");
+        displayMsg("😔", username, "Disconnected.");
     };
     socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());
-        if (msg.type === GameEndEvent) {
-            displayMsg('player', msg.from, `scored ${msg.value.score}`);
-        } else if (msg.type === GameStartEvent) {
-            displayMsg('player', msg.from, `started a new game`);
-        }
+        receive(msg);
     };
 }
 
@@ -134,17 +132,18 @@ function  broadcastEvent(from, type, value) {
         type: type,
         value: value,
     };
-    this.socket.send(JSON.stringify(event));
+    socket.send(JSON.stringify(event));
 }
 
 function share() {
-    const request = createRequest();
+    broadcastEvent(username, "out", currentPrompt);
+    displayMsg("🥳", username, "Shared!");
 
-    sendRequest(request)
-    .then((request) => returnRequest(request))
-    .catch((request) => {
-        failedRequest(request);
-    });
+    //sendRequest(request)
+   // .then((request) => returnRequest(request))
+    //.catch((request) => {
+    //    failedRequest(request);
+   // });
 }
 
 function createRequest(request) {
@@ -177,15 +176,8 @@ function failedRequest(request) {
     request.element.innerHTML = `<span>[${request.id}] 😔 <b>Failed</b>!</span>`;
 }
 
-async function receive() {
-    //websocket placeholder
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-
-    await delay(30000);
-    const space = findSpace();
-    if (space) {
-        loadPage();
-    }
+async function receive(msg) {
+    displayMsg("🤩", msg.from, "New prompt!");
 }
 
 async function findSpace() {
