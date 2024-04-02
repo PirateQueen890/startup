@@ -85,12 +85,12 @@ For this deliverable, I added login funtionality. This was completed on 3/24/202
 * **Restricts application functionality based upon authentication --** Completed. While the user can generate prompts without being logged in, they will not be able to save, share, or receive prompts. Share and Save buttons are disabled, and the link to favorites.html is removed from the navigation bar. 
 
 ## Websocket Deliverable
-
+For this delieverable, I added websocket functionality on the share page. This was completed on 4/1/2024.
 * **Prerequisite: Simon WebSocket deployed to your production environment --** Completed. Use simon subdomain to access.
 * **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer of each page.
-* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
-* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --**
-* **Backend listens for WebSocket connection --**
-* **Frontend makes WebSocket connection --**
-* **Data sent over WebSocket connection --**
-* **WebSocket data displayed in the application interface --**
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --** Completed.
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** Completed. Mar 26 - 2 commits, Mar 28 - 1 commit, Mar 29 - 2 commits, Mar 30 - 2 commits, Mar 31 - 2 commits, Apr 1 - 3 commits
+* **Backend listens for WebSocket connection --** Completed. Check peerProxy.js.
+* **Frontend makes WebSocket connection --** Completed. Check share.js in websocketSetup(). 
+* **Data sent over WebSocket connection --** Completed. Check receive() and broadcastEvent() in share.js.
+* **WebSocket data displayed in the application interface --** Completed. Check displayMsg() and loadReceivedButtons() in share.js. 
