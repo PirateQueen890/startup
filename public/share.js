@@ -3,6 +3,7 @@ let received;
 let currentReceived;
 let promptType;
 let username;
+let listSize = 0;
 
 async function loadPage() {
     currentPrompt = localStorage.getItem("currentPrompt");
@@ -123,10 +124,15 @@ async function webSocketSetup() {
 
 function displayMsg(emo, from, msg) {
     const requestElement = document.createElement("li");
+    ++listSize;
 
     requestElement.innerHTML = `<span>[${from}] ${emo} <i>${msg}</i></span>`;;
 
     const requests = document.getElementById("requests");
+
+    if (listSize > 4) {
+        requests.removeChild(requests.firstElementChild);
+    }
     requests.appendChild(requestElement);
 }
 
@@ -140,8 +146,12 @@ function  broadcastEvent(from, type, value) {
 }
 
 function share() {
-    broadcastEvent(username, "out", currentPrompt);
-    displayMsg("🥳", username, "Shared!");
+    if (currentPrompt[0].type == "") {
+        displayMsg("🤔", username, "Please select a prompt.");
+    } else {
+        broadcastEvent(username, "out", currentPrompt);
+        displayMsg("🥳", username, "Shared!");
+    }
 }
 
 async function receive(msg) {
