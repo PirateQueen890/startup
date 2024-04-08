@@ -94,3 +94,14 @@ For this delieverable, I added websocket functionality on the share page. This w
 * **Frontend makes WebSocket connection --** Completed. Check share.js in websocketSetup(). 
 * **Data sent over WebSocket connection --** Completed. Check receive() and broadcastEvent() in share.js.
 * **WebSocket data displayed in the application interface --** Completed. Check displayMsg() and loadReceivedButtons() in share.js. 
+
+## React Deliverable
+
+* **Prerequisite: Simon React deployed to your production environment --**
+* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --**
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --**
+* **Bundled using Vite --**
+* **Multiple functional React components --**
+* **React router --**
+* **React hooks --**
