@@ -33,6 +33,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
 
 footer {
@@ -60,4 +61,13 @@ th {
     padding-right: 10px;
     margin-bottom: 20px;
     color: white;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h4 {
+    font-family:'Times New Roman', Times, serif;
+    padding: 10px;
 }
