@@ -6,7 +6,7 @@ import { AuthState } from './authState';
 
 export function Login({ username, authState, onAuthChange }) {
   return (
-    <main className='container-fluid bg-secondary text-center'>
+    <main className='container-fluid bg-white text-center'>
       <h1>Welcome!</h1>
       <h4>Log in to favorite and share generated prompts.</h4>
       <div>

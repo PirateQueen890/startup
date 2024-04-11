@@ -3,6 +3,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Generator } from './generator/generator';
 import { Favorites } from './favorites/favorites';
+import { Share } from './share/share';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -65,6 +66,7 @@ function App() {
                     />
                     <Route path='/generator' element={<Generator />} />
                     <Route path='/favorites' element={<Favorites />} />
+                    <Route path="/share" element={<Share />} />
                     <Route path='/about' element={<About />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
