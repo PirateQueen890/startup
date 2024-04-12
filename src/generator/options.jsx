@@ -192,6 +192,12 @@ export function Options() {
 
     const modes = ["monochrome", "monochrome-dark", "monochrome-light", "analogic", "complement", "analogic-complement", "triad", "quad"]
 
+    const [type, setType] = React.useState("Fusion");
+
+    const onTypeChange = e => {
+        setType(e.target.value);
+    }
+
     let currentPrompt;
     let newPrompt = "";
     let username;
@@ -201,7 +207,7 @@ export function Options() {
         const radios = document.getElementsByName("inlineRadioOptions");
         let generationType;
     
-        for (i = 0; i < radios.length; ++i) {
+        for (let i = 0; i < radios.length; ++i) {
             if (radios[i].checked) {
                 generationType = radios[i].value;
                 localStorage.setItem("generationType", generationType.value);
@@ -213,7 +219,7 @@ export function Options() {
         let generationTopic = [];
         let j = 0;
     
-        for (i = 0; i < boxes.length; ++i) {
+        for (let i = 0; i < boxes.length; ++i) {
             if (boxes[i].checked) {
                 generationTopic[j] = boxes[i].value;
                 ++j;
@@ -379,15 +385,15 @@ export function Options() {
                 <fieldset id="setType">
                 <legend>Type</legend>
                 <div class="form-check form-check-inline">
-                    <input clasName="form-check-input" type="radio" name="inlineRadioOptions" id="optionFusion" value="optionFusion"/>
+                    <input className="form-check-input" type="radio" name="type" id="optionFusion" checked={type === "Fusion"} onChange={onTypeChange} value="optionFusion"/>
                     <label className="form-check-label" for="optionFusion">Fusion</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="optionCharacter" value="optionCharacter"/>
+                    <input className="form-check-input" type="radio" name="type" id="optionCharacter" checked={type === "Character"} onChange={onTypeChange} value="optionCharacter"/>
                     <label className="form-check-label" for="optionCharacter">Character</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="optionSituation" value="optionSituation"/>
+                    <input className="form-check-input" type="radio" name="type" id="optionSituation" checked={type === "Situation"} onChange={onTypeChange} value="optionSituation"/>
                     <label className="form-check-label" for="optionSituation">Situation</label>
                 </div>
                 </fieldset>
@@ -416,7 +422,7 @@ export function Options() {
                     </div>
                 </fieldset>
                 <div className="col-md-12 text-center">
-                    <Button variant="primary" id="buttonGenerate" onclick={() => generate()}>Generate</Button>
+                    <button className="btn btn-primary" id="buttonGenerate" onClick={() => generate()}>Generate</button>
                 </div>
             </div>
             </div>
