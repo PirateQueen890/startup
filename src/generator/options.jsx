@@ -192,16 +192,16 @@ export function Options() {
 
     const modes = ["monochrome", "monochrome-dark", "monochrome-light", "analogic", "complement", "analogic-complement", "triad", "quad"]
 
+    let currentPrompt;
+    let newPrompt = "";
+    let username;
+    let colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
+
     const [type, setType] = React.useState("Fusion");
 
     const onTypeChange = e => {
         setType(e.target.value);
     }
-
-    let currentPrompt;
-    let newPrompt = "";
-    let username;
-    let colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
 
     function generate() {
         const radios = document.getElementsByName("inlineRadioOptions");
@@ -384,17 +384,17 @@ export function Options() {
                 <h2 className="card-title">Options</h2>
                 <fieldset id="setType">
                 <legend>Type</legend>
-                <div class="form-check form-check-inline">
+                <div className="form-check form-check-inline">
                     <input className="form-check-input" type="radio" name="type" id="optionFusion" checked={type === "Fusion"} onChange={onTypeChange} value="optionFusion"/>
-                    <label className="form-check-label" for="optionFusion">Fusion</label>
+                    <label htmlFor="optionFusion">Fusion</label>
                 </div>
-                <div class="form-check form-check-inline">
+                <div className="form-check form-check-inline">
                     <input className="form-check-input" type="radio" name="type" id="optionCharacter" checked={type === "Character"} onChange={onTypeChange} value="optionCharacter"/>
-                    <label className="form-check-label" for="optionCharacter">Character</label>
+                    <label htmlFor="optionCharacter">Character</label>
                 </div>
-                <div class="form-check form-check-inline">
+                <div className="form-check form-check-inline">
                     <input className="form-check-input" type="radio" name="type" id="optionSituation" checked={type === "Situation"} onChange={onTypeChange} value="optionSituation"/>
-                    <label className="form-check-label" for="optionSituation">Situation</label>
+                    <label htmlFor="optionSituation">Situation</label>
                 </div>
                 </fieldset>
         
@@ -402,23 +402,23 @@ export function Options() {
                     <legend>Topic</legend>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionFantasy" value="optionFantasy"/>
-                        <label className="form-check-label" for="optionFantasy">Fantasy</label>
+                        <label htmlFor="optionFantasy">Fantasy</label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionRomance" value="optionRomance"/>
-                        <label className="form-check-label" for="optionRomance">Romance</label>
+                        <label htmlFor="optionRomance">Romance</label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionWar" value="optionWar"/>
-                        <label className="form-check-label" for="optionWar">War</label>
+                        <label htmlFor="optionWar">War</label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionFamily" value="optionFamily"/>
-                        <label className="form-check-label" for="optionFamily">Family</label>
+                        <label htmlFor="optionFamily">Family</label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionSupernatural" value="optionSupernatural"/>
-                        <label className="form-check-label" for="optionSupernatural">Supernatural</label>
+                        <label htmlFor="optionSupernatural">Supernatural</label>
                     </div>
                 </fieldset>
                 <div className="col-md-12 text-center">
