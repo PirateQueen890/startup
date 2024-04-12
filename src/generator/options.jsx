@@ -385,15 +385,15 @@ export function Options() {
                 <fieldset id="setType">
                 <legend>Type</legend>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="type" id="optionFusion" checked={type === "Fusion"} onChange={onTypeChange} value="optionFusion"/>
+                    <input className="form-check-input" type="radio" name="type" id="optionFusion" checked={type === "Fusion"} onChange={onTypeChange} value="Fusion"/>
                     <label htmlFor="optionFusion">Fusion</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="type" id="optionCharacter" checked={type === "Character"} onChange={onTypeChange} value="optionCharacter"/>
+                    <input className="form-check-input" type="radio" name="type" id="optionCharacter" checked={type === "Character"} onChange={onTypeChange} value="Character"/>
                     <label htmlFor="optionCharacter">Character</label>
                 </div>
                 <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="type" id="optionSituation" checked={type === "Situation"} onChange={onTypeChange} value="optionSituation"/>
+                    <input className="form-check-input" type="radio" name="type" id="optionSituation" checked={type === "Situation"} onChange={onTypeChange} value="Situation"/>
                     <label htmlFor="optionSituation">Situation</label>
                 </div>
                 </fieldset>
