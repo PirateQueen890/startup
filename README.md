@@ -96,12 +96,12 @@ For this delieverable, I added websocket functionality on the share page. This w
 * **WebSocket data displayed in the application interface --** Completed. Check displayMsg() and loadReceivedButtons() in share.js. 
 
 ## React Deliverable
-
+FOr this deliverable, I converted this application to a react framework. This was completed on 4/13/2024.
 * **Prerequisite: Simon React deployed to your production environment --** Completed. Use simon subdomain to access.
-* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** 
-* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --**
-* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --**
-* **Bundled using Vite --**
-* **Multiple functional React components --**
-* **React router --**
-* **React hooks --**
+* **Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page --** Completed. In the footer of each page.
+* **Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable --** Completed.
+* **Prerequisite: At least 10 git commits spread consistently throughout the assignment period --** Completed. Apr 7 - 2 commits, Apr 8 - 10 commits, Apr 9 - 2 commits, Apr 10 - 5 commits, Apr 11 - 5 commits, Apr 12 - 7 commits, Apr 13 - 15 commits.
+* **Bundled using Vite --** Completed.
+* **Multiple functional React components --** Completed. See src folder.
+* **React router --** Completed. See app.jsx.
+* **React hooks --** Completed. See generator.jsx, favorites.jsx, and share.jsx. 
