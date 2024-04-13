@@ -521,7 +521,7 @@ export function Generator() {
                               value={checkedFantasy}
                               onChange={handleChangeFantasy}
                           />
-                          <label class="form-check-label" htmlFor="topicFantasy">Fantasy</label>
+                          <label className="form-check-label" htmlFor="topicFantasy">Fantasy</label>
                       </div>
                       <div className="form-check form-check-inline">
                           <input
@@ -531,7 +531,7 @@ export function Generator() {
                               value={checkedRomance}
                               onChange={handleChangeRomance}
                           />
-                          <label class="form-check-label" htmlFor="topicRomance">Romance</label>
+                          <label className="form-check-label" htmlFor="topicRomance">Romance</label>
                       </div>
                       <div className="form-check form-check-inline">
                           <input
@@ -541,7 +541,7 @@ export function Generator() {
                               value={checkedWar}
                               onChange={handleChangeWar}
                           />
-                          <label class="form-check-label" htmlFor="topicWar">War</label>
+                          <label className="form-check-label" htmlFor="topicWar">War</label>
                       </div>
                       <div className="form-check form-check-inline">
                           <input
@@ -551,7 +551,7 @@ export function Generator() {
                               value={checkedFamily}
                               onChange={handleChangeFamily}
                           />
-                          <label class="form-check-label" htmlFor="topicFamily">Family</label>
+                          <label className="form-check-label" htmlFor="topicFamily">Family</label>
                       </div>
                       <div className="form-check form-check-inline">
                           <input
@@ -561,7 +561,7 @@ export function Generator() {
                               value={checkedSupernatural}
                               onChange={handleChangeSupernatural}
                           />
-                          <label class="form-check-label" htmlFor="topicSupernatural">Supernatural</label>
+                          <label className="form-check-label" htmlFor="topicSupernatural">Supernatural</label>
                       </div>
                     </fieldset>
                     
