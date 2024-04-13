@@ -1,6 +1,26 @@
 import React from 'react';
 import './generator.css';
 
+function MyComponent(props){
+  useEffect(()=>{
+    currentPrompt = localStorage.getItem("currentPrompt");
+    currentPrompt = JSON.parse(currentPrompt);
+
+    username = localStorage.getItem("username");
+    username = JSON.parse(username);
+
+    if (username == null) {
+        console.log("Not logged in.")
+        document.getElementById("buttonFavorite").disabled = true;
+        document.getElementById("buttonShareGen").disabled = true;
+    }
+  
+    setColors(0, currentPrompt[0].colors);
+    document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt; 
+  }, []) // <-- empty dependency array
+  return <div></div>
+}
+
 export function Generator() {
     const settings = ["Abandoned Mine", "Airplane", "Airport", "Alley", "Ambulance", "Amusement Park", "Ancient Ruins", "Antiques Shop", 
     "Archery Range", "Arctic Tundra", "Art Gallery", "Art Studio", "Attic", "Backyard", "Badlands", "Bakery", "Ballroom", "Bank", "Bar", 
@@ -384,24 +404,6 @@ export function Generator() {
         localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
     }
 
-    function loadDisplay() {
-        currentPrompt = localStorage.getItem("currentPrompt");
-        currentPrompt = JSON.parse(currentPrompt);
-    
-        username = localStorage.getItem("username");
-        username = JSON.parse(username);
-    
-        if (username == null) {
-            console.log("Not logged in.")
-            document.getElementById("buttonFavorite").disabled = true;
-            document.getElementById("buttonShareGen").disabled = true;
-            document.getElementById("navFav").remove();
-        }
-    
-        setColors(0, currentPrompt[0].colors);
-        document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt;
-    }
-
     function setColors(num, colors) {
         if (num < colors.length) {
             let field = "color" + (num + 1);
@@ -479,7 +481,7 @@ export function Generator() {
     }
 
   return (
-    <main className='container-fluid bg-white'>
+    <main className='container-fluid bg-white' onLoad={() => loadDisplay()}>
       <div className="card">
         <div className="card-header">
           Generate Prompt
@@ -490,7 +492,7 @@ export function Generator() {
               <div className="card">
                 <div className="card-body">
                   <h2 className="card-title">Options</h2>
-                  <fieldset id="setType">
+                  <fieldset className="fieldInput">
                     <legend>Type</legend>
                     <div className="form-check form-check-inline">
                       <input className="form-check-input" type="radio" name="type" id="optionFusion" checked={type === "Fusion"} onChange={onTypeChange} value="Fusion"/>
@@ -506,7 +508,7 @@ export function Generator() {
                     </div>
                   </fieldset>
           
-                  <fieldset id="setTopic">
+                  <fieldset className="fieldInput">
                     <legend>Topic</legend>
                       <div className="form-check form-check-inline">
                           <input
@@ -570,17 +572,17 @@ export function Generator() {
               <div className="card">
                 <div className="card-body">
                   <h2 className="card-title">Prompt</h2>
-                  <p id="displayPrompt">Click the Generate button to get a prompt!</p>
+                  <p className="displayPromptP" id="displayPrompt">Click the Generate button to get a prompt!</p>
                   <div className="row justify-content-center">
                     <div className="col-auto">
                     <table className="table table-responsive">
                         <thead>
                             <tr>
-                                <th id="color1">color</th>
-                                <th id="color2">color</th>
-                                <th id="color3">color</th>
-                                <th id="color4">color</th>
-                                <th id="color5">color</th>
+                              <th className="colorSlot" id="color1">color</th>
+                              <th className="colorSlot" id="color2">color</th>
+                              <th className="colorSlot" id="color3">color</th>
+                              <th className="colorSlot" id="color4">color</th>
+                              <th className="colorSlot" id="color5">color</th>
                             </tr>
                         </thead>
                     </table>

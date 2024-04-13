@@ -6,31 +6,26 @@ main {
     justify-content: center;
 }
 
-section {
-    padding: 50px;
-    width: 50%;
-    height: 75vh;
-}
-
-h2 {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 50px;
-}
-
-fieldset {
+.fieldInput {
     margin-bottom: 30px;
-}
-
-p {
-    margin-top: 10px;
-    height: 144px;
 }
 
 .card-header {
     text-align: center;
     font-weight: bold;
     font-size: large;
+}
+
+.card-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.displayPromptP {
+    margin-top: 10px;
+    height: 144px;
+    width: 300px;
 }
 
 
