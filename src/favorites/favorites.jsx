@@ -10,7 +10,9 @@ export function Favorites() {
   let promptType;
   let username = JSON.parse(localStorage.getItem("stringUsername"));
 
-  React.useEffect(async () => {
+  //const [buttonId, setButtonId] = React.useState("[Empty]");
+
+  async function loadButtons() {
       const save1 = document.getElementById("save1");
       const save2 = document.getElementById("save2");
       const save3 = document.getElementById("save3");
@@ -29,12 +31,16 @@ export function Favorites() {
             saveButtons[i].disabled = false;
           }
       }
-  }, [])
+  }
 
   const navigate = useNavigate();
 
   function displaySave(buttonId) {
       //Grab info from database and change paragraph text
+
+      if(saves.length < 6) {
+        loadButtons();
+      }
 
       currentSave = document.getElementById(buttonId);
 
@@ -109,18 +115,18 @@ export function Favorites() {
   }
 
   async function loadFavorites() {
-      let favorites = [];
+    let favorites = [];
 
-      try {
-        const response = await fetch('/api/favorites')
-        favorites = await response.json();
-        favorites = favorites.favorites;
-      } catch {
-          console.log("Error: Failed to fetch favorites.");
-      }
-    
-      return favorites;
-  }
+    try {
+      const response = await fetch('/api/favorites')
+      favorites = await response.json();
+      favorites = favorites.favorites;
+    } catch {
+        console.log("Error: Failed to fetch favorites.");
+    }
+  
+    return favorites;
+}
 
   return (
     <main className='container-fluid bg-white'>
@@ -135,12 +141,12 @@ export function Favorites() {
               <div className="card-body">
                 <h2 className="card-titleFav">Save files</h2>
                 <div className="d-grid gap-2">
-                  <button className="btn btn-outline-primary" id="save1" type="button" onClick={displaySave("save1")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save2" type="button" onClick={displaySave("save2")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save3" type="button" onClick={displaySave("save3")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save4" type="button" onClick={displaySave("save4")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save5" type="button" onClick={displaySave("save5")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save6" type="button" onClick={displaySave("save6")} disabled>[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save1" type="button" onClick={() => displaySave("save1")} disabled>[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save2" type="button" onClick={() => displaySave("save2")} disabled>[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save3" type="button" onClick={() => displaySave("save3")} disabled>[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save4" type="button" onClick={() => displaySave("save4")} disabled>[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save5" type="button" onClick={() => displaySave("save5")} disabled>[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save6" type="button" onClick={() => displaySave("save6")} disabled>[Empty]</button>
                 </div>
               </div>
             </div>
