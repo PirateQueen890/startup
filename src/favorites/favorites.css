@@ -6,23 +6,13 @@ main {
     justify-content: center;
 }
 
-section {
-    padding: 50px;
-    width: 50%;
-    height: 75vh;
-}
-
-h2 {
+.card-titleFav {
     text-align: center;
     font-weight: bold;
     margin-bottom: 50px;
 }
 
-fieldset {
-    margin-bottom: 30px;
-}
-
-p {
+.displaySaveP {
     margin-top: 10px;
     height: 144px;
 }
