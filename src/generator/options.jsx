@@ -415,39 +415,54 @@ export function Options() {
                 <fieldset id="setTopic">
                     <legend>Topic</legend>
                     <div className="form-check form-check-inline">
-                        <Checkbox
-                            label="Fantasy"
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="topicFantasy"
                             value={checkedFantasy}
                             onChange={handleChangeFantasy}
                         />
+                        <label htmlFor="topicFantasy">Fantasy</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <Checkbox
-                            label="Romance"
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="topicRomance"
                             value={checkedRomance}
                             onChange={handleChangeRomance}
                         />
+                        <label htmlFor="topicRomance">Romance</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <Checkbox
-                            label="War"
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="topicWar"
                             value={checkedWar}
                             onChange={handleChangeWar}
                         />
+                        <label htmlFor="topicWar">War</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <Checkbox
-                            label="Family"
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="topicFamily"
                             value={checkedFamily}
                             onChange={handleChangeFamily}
                         />
+                        <label htmlFor="topicFamily">Family</label>
                     </div>
                     <div className="form-check form-check-inline">
-                        <Checkbox
-                            label="Supernatural"
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="topicSupernatural"
                             value={checkedSupernatural}
                             onChange={handleChangeSupernatural}
                         />
+                        <label htmlFor="topicSupernatural">Supernatural</label>
                     </div>
                 </fieldset>
                 <div className="col-md-12 text-center">
@@ -460,11 +475,3 @@ export function Options() {
   );
 }
 
-const Checkbox = ({ label, value, onChange }) => {
-    return (
-      <label>
-        <input type="checkbox" checked={value} onChange={onChange} />
-        {label}
-      </label>
-    );
-};
