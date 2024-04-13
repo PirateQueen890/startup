@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './generator.css';
 
 export function Generator() {
@@ -242,6 +243,8 @@ export function Generator() {
         document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt;
     }, [])
 
+    const navigate = useNavigate();
+
     function generate() {
         //localStorage.setItem("generationType", type);
         //localStorage.setItem("generationTopic", generationTopic.value); 
@@ -404,11 +407,6 @@ export function Generator() {
             document.getElementById(field).style.backgroundColor = colors[num];
             setColors(++num, colors);
         }
-    }
-    
-    function share() {
-        storeCurrentPrompt();
-        window.location.href = "share.html";
     }
     
     async function favorite() {
@@ -577,7 +575,7 @@ export function Generator() {
                   </div>
                   <div className="col-md-12 text-center">
                     <button type="button" className="btn btn-primary" id="buttonFavorite" onClick={() => favorite()}>Favorite</button>
-                    <button className="btn btn-primary" id="buttonShareGen" onClick={() => share()}>Share</button>
+                    <button className="btn btn-primary" id="buttonShareGen" onClick={() => navigate('/share')}>Share</button>
                   </div>
                 </div>
               </div>
