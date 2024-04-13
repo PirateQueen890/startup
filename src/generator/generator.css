@@ -7,7 +7,7 @@ main {
 }
 
 .fieldInput {
-    margin-bottom: 30px;
+    margin-bottom: 45px;
 }
 
 .card-header {
@@ -16,7 +16,7 @@ main {
     font-size: large;
 }
 
-.card-title {
+.card-titleGen {
     text-align: center;
     font-weight: bold;
     margin-bottom: 50px;
@@ -24,8 +24,12 @@ main {
 
 .displayPromptP {
     margin-top: 10px;
-    height: 144px;
-    width: 300px;
+    height: 151px;
+}
+
+#cardGenerator {
+    width: 1250px;
+    height: 466.88px;
 }
 
 

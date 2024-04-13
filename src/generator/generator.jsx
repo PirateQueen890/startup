@@ -485,7 +485,7 @@ export function Generator() {
 
   return (
     <main className='container-fluid bg-white'>
-      <div className="card">
+      <div className="card" id="cardGenerator">
         <div className="card-header">
           Generate Prompt
         </div>
@@ -494,7 +494,7 @@ export function Generator() {
             <div className="col-sm-6">
               <div className="card">
                 <div className="card-body">
-                  <h2 className="card-title">Options</h2>
+                  <h2 className="card-titleGen">Options</h2>
                   <fieldset className="fieldInput">
                     <legend>Type</legend>
                     <div className="form-check form-check-inline">
@@ -574,7 +574,7 @@ export function Generator() {
             <div className="col-sm-6">
               <div className="card">
                 <div className="card-body">
-                  <h2 className="card-title">Prompt</h2>
+                  <h2 className="card-titleGen">Prompt</h2>
                   <p className="displayPromptP" id="displayPrompt">Click the Generate button to get a prompt!</p>
                   <div className="row justify-content-center">
                     <div className="col-auto">
