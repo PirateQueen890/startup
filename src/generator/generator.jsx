@@ -413,7 +413,7 @@ export function Generator() {
         let saves = await loadFavorites();
         let found = false;
     
-        for (i = 0; i < saves.length; ++i) {
+        for (let i = 0; i < saves.length; ++i) {
             if (saves[i].prompt === "") {
                 saves[i].owner = currentPrompt[0].owner;
                 saves[i].type = currentPrompt[0].type;
