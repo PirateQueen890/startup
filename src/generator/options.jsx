@@ -203,17 +203,34 @@ export function Options() {
         setType(e.target.value);
     }
 
+    const [checkedFantasy, setCheckedFantasy] = React.useState(false);
+    const [checkedRomance, setCheckedRomance] = React.useState(false);
+    const [checkedWar, setCheckedWar] = React.useState(false);
+    const [checkedFamily, setCheckedFamily] = React.useState(false);
+    const [checkedSupernatural, setCheckedSupernatural] = React.useState(false);
+
+    const handleChangeFantasy = () => {
+        setCheckedFantasy(!checkedFantasy);
+    };
+
+    const handleChangeRomance = () => {
+        setCheckedRomance(!checkedRomance);
+    };
+
+    const handleChangeWar = () => {
+        setCheckedWar(!checkedWar);
+    };
+
+    const handleChangeFamily = () => {
+        setCheckedFamily(!checkedFamily);
+    };
+
+    const handleChangeSupernatural = () => {
+        setCheckedSupernatural(!checkedSupernatural);
+    };
+
     function generate() {
-        const radios = document.getElementsByName("inlineRadioOptions");
-        let generationType;
-    
-        for (let i = 0; i < radios.length; ++i) {
-            if (radios[i].checked) {
-                generationType = radios[i].value;
-                localStorage.setItem("generationType", generationType.value);
-                break;
-            }
-        }
+        //localStorage.setItem("generationType", type);
     
         const boxes = document.getElementsByName("inlineCheckOptions");
         let generationTopic = [];
@@ -230,25 +247,22 @@ export function Options() {
             generationTopic = ["optionFantasy", "optionRomance", "optionFamily", "optionWar", "optionSupernatural"];
         }
     
-        localStorage.setItem("generationTopic", generationTopic.value);
+        //localStorage.setItem("generationTopic", generationTopic.value);
     
-        if (generationType === "optionFusion") {
-            generationType = "Fusion";
+        if (type === "Fusion") {
             generateFusion(generationTopic);
-        } else if (generationType === "optionCharacter") {
-            generationType = "Character";
+        } else if (type === "Character") {
             generateCharacter(generationTopic);
-        } else if (generationType === "optionSituation") {
-            generationType = "Situation";
+        } else if (type === "optionSituation") {
             generateScenario(generationTopic);
         } else {
             const error = "Please select a generation type on the left."
-            document.getElementById("displayPrompt").textContent=error;
+            document.getElementById("displayPrompt").textContent = error;
         }
     
         currentPrompt[0].owner = username;
         currentPrompt[0].prompt = newPrompt;
-        currentPrompt[0].type = generationType;
+        currentPrompt[0].type = type;
         currentPrompt[0].colors = colors;
         newPrompt = "";
         storeCurrentPrompt();
@@ -401,24 +415,39 @@ export function Options() {
                 <fieldset id="setTopic">
                     <legend>Topic</legend>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionFantasy" value="optionFantasy"/>
-                        <label htmlFor="optionFantasy">Fantasy</label>
+                        <Checkbox
+                            label="Fantasy"
+                            value={checkedFantasy}
+                            onChange={handleChangeFantasy}
+                        />
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionRomance" value="optionRomance"/>
-                        <label htmlFor="optionRomance">Romance</label>
+                        <Checkbox
+                            label="Romance"
+                            value={checkedRomance}
+                            onChange={handleChangeRomance}
+                        />
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionWar" value="optionWar"/>
-                        <label htmlFor="optionWar">War</label>
+                        <Checkbox
+                            label="War"
+                            value={checkedWar}
+                            onChange={handleChangeWar}
+                        />
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionFamily" value="optionFamily"/>
-                        <label htmlFor="optionFamily">Family</label>
+                        <Checkbox
+                            label="Family"
+                            value={checkedFamily}
+                            onChange={handleChangeFamily}
+                        />
                     </div>
                     <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="checkbox" name="inlineCheckOptions" id="optionSupernatural" value="optionSupernatural"/>
-                        <label htmlFor="optionSupernatural">Supernatural</label>
+                        <Checkbox
+                            label="Supernatural"
+                            value={checkedSupernatural}
+                            onChange={handleChangeSupernatural}
+                        />
                     </div>
                 </fieldset>
                 <div className="col-md-12 text-center">
@@ -430,3 +459,12 @@ export function Options() {
     </main>
   );
 }
+
+const Checkbox = ({ label, value, onChange }) => {
+    return (
+      <label>
+        <input type="checkbox" checked={value} onChange={onChange} />
+        {label}
+      </label>
+    );
+};
