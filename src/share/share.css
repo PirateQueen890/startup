@@ -6,14 +6,13 @@ main {
     justify-content: center;
 }
 
-h2 {
+.card-titleSh {
     text-align: center;
     font-weight: bold;
     margin-bottom: 50px;
 }
 
-p {
-    margin-top: 30pxx;
+#instructions {
     margin-bottom: 20px;
 }
 
@@ -23,14 +22,28 @@ p {
     font-size: large;
 }
 
-label {
-    font-weight: bold;
-}
-
 #inputShareUsername {
     text-align: center;
 }
 
 #favButtonDiv {
     text-align: center;
+}
+
+#cardShare {
+    width: 1250px;
+    height: 466.88px;
+}
+
+#displayCurrentPrompt {
+    margin-top: 10px;
+    height: 151px;
+}
+
+#cardShareInput {
+    height: 390px;
+}
+
+#requests {
+    height: 139px;
 }
