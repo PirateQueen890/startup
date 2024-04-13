@@ -1,26 +1,6 @@
 import React from 'react';
 import './generator.css';
 
-function MyComponent(props){
-  useEffect(()=>{
-    currentPrompt = localStorage.getItem("currentPrompt");
-    currentPrompt = JSON.parse(currentPrompt);
-
-    username = localStorage.getItem("username");
-    username = JSON.parse(username);
-
-    if (username == null) {
-        console.log("Not logged in.")
-        document.getElementById("buttonFavorite").disabled = true;
-        document.getElementById("buttonShareGen").disabled = true;
-    }
-  
-    setColors(0, currentPrompt[0].colors);
-    document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt; 
-  }, []) // <-- empty dependency array
-  return <div></div>
-}
-
 export function Generator() {
     const settings = ["Abandoned Mine", "Airplane", "Airport", "Alley", "Ambulance", "Amusement Park", "Ancient Ruins", "Antiques Shop", 
     "Archery Range", "Arctic Tundra", "Art Gallery", "Art Studio", "Attic", "Backyard", "Badlands", "Bakery", "Ballroom", "Bank", "Bar", 
@@ -212,9 +192,9 @@ export function Generator() {
 
     const modes = ["monochrome", "monochrome-dark", "monochrome-light", "analogic", "complement", "analogic-complement", "triad", "quad"]
 
-    let currentPrompt;
+    let currentPrompt = JSON.parse(localStorage.getItem("currentPrompt"));
     let newPrompt = "";
-    let username;
+    let username = JSON.parse(localStorage.getItem("stringUsername"));
     let colors = ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"];
 
     const [type, setType] = React.useState("Fusion");
@@ -249,9 +229,22 @@ export function Generator() {
         setCheckedSupernatural(!checkedSupernatural);
     };
 
+    React.useEffect(() => {
+        if (username == null) {
+            console.log("Not logged in.")
+            document.getElementById("buttonFavorite").disabled = true;
+            document.getElementById("buttonShareGen").disabled = true;
+            currentPrompt = [{owner: "", type: "", colors: ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"], prompt: "Click the Generate button to get a prompt!"}];
+            username = "unknown";
+          }
+    
+        setColors(0, currentPrompt[0].colors);
+        document.querySelector("#displayPrompt").innerHTML = currentPrompt[0].prompt;
+    }, [])
+
     function generate() {
         //localStorage.setItem("generationType", type);
-        //localStorage.setItem("generationTopic", generationTopic.value);
+        //localStorage.setItem("generationTopic", generationTopic.value); 
     
         if (type === "Fusion") {
             generateFusion();
@@ -413,11 +406,6 @@ export function Generator() {
         }
     }
     
-    function storeCurrentPrompt() {
-        localStorage.removeItem("currentPrompt");
-        localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
-    }
-    
     function share() {
         storeCurrentPrompt();
         window.location.href = "share.html";
@@ -481,7 +469,7 @@ export function Generator() {
     }
 
   return (
-    <main className='container-fluid bg-white' onLoad={() => loadDisplay()}>
+    <main className='container-fluid bg-white'>
       <div className="card">
         <div className="card-header">
           Generate Prompt

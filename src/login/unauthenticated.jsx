@@ -26,6 +26,7 @@ export function Unauthenticated(props) {
     });
     if (response?.status === 200) {
       localStorage.setItem('username', username);
+      localStorage.setItem('stringUsername', JSON.stringify(username));
       const currentPrompt = [{owner: "", type: "", colors: ["rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)", "rgb(255, 255, 255)"], prompt: "Click the Generate button to get a prompt!"}];
       localStorage.setItem("currentPrompt", JSON.stringify(currentPrompt));
       props.onLogin(username);
