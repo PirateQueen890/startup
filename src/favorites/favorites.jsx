@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './favorites.css';
 
@@ -10,7 +11,10 @@ export function Favorites() {
   let promptType;
   let username = JSON.parse(localStorage.getItem("stringUsername"));
 
-  //const [buttonId, setButtonId] = React.useState("[Empty]");
+  React.useEffect(() => {
+    loadButtons();
+    setColors(0);
+  }, []);
 
   async function loadButtons() {
       const save1 = document.getElementById("save1");
@@ -28,7 +32,8 @@ export function Favorites() {
           if (saves[i].prompt != "") {
             promptType = saves[i].type;
             saveButtons[i].textContent = saves[i].owner + ", " + promptType;
-            saveButtons[i].disabled = false;
+          } else {
+            saveButtons[i].disabled = true;
           }
       }
   }
@@ -37,10 +42,6 @@ export function Favorites() {
 
   function displaySave(buttonId) {
       //Grab info from database and change paragraph text
-
-      if(saves.length < 6) {
-        loadButtons();
-      }
 
       currentSave = document.getElementById(buttonId);
 
@@ -141,12 +142,12 @@ export function Favorites() {
               <div className="card-body">
                 <h2 className="card-titleFav">Save files</h2>
                 <div className="d-grid gap-2">
-                  <button className="btn btn-outline-primary" id="save1" type="button" onClick={() => displaySave("save1")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save2" type="button" onClick={() => displaySave("save2")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save3" type="button" onClick={() => displaySave("save3")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save4" type="button" onClick={() => displaySave("save4")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save5" type="button" onClick={() => displaySave("save5")} disabled>[Empty]</button>
-                  <button className="btn btn-outline-primary" id="save6" type="button" onClick={() => displaySave("save6")} disabled>[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save1" type="button" onClick={() => displaySave("save1")} >[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save2" type="button" onClick={() => displaySave("save2")} >[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save3" type="button" onClick={() => displaySave("save3")} >[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save4" type="button" onClick={() => displaySave("save4")} >[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save5" type="button" onClick={() => displaySave("save5")} >[Empty]</button>
+                  <button className="btn btn-outline-primary" id="save6" type="button" onClick={() => displaySave("save6")} >[Empty]</button>
                 </div>
               </div>
             </div>
