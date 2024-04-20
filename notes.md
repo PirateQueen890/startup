@@ -106,3 +106,19 @@ GitHub is awesome and a fun time. Had a hard time figuring out VS Code and git, 
 - Add require('<package name here>') to your application's JavaScript
 - Use the code the package provides in your JavaScript
 - Run your code with node index.js
+
+## Service
+- 80 HTTP
+- 443 HTTPS
+- 1xx informational
+- 2xx success
+- 3xx redirects
+- 4xx client errors
+- 5xx server errors
+- Common headers - authorization, accept, content-type, cookie, host, origin, access-control-allow-origin, content-length, user-agent
+
+## Mongo
+- find({beds: { $gte: 2 }}); two or more bedrooms
+- find({ status: 'available', beds: { $lt: 3 } }); available with less than three beds
+- find({ $or: [(beds: { $lt: 3 }), (price: { $lt: 1000 })] }); either less than three beds or less than $1000 a night
+- find({ summary: /(modern|beach)/i }); with the text 'modern' or 'beach' in the summary
